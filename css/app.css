@@ -1,0 +1,117 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td {margin:0;padding:0;}
+table {border-collapse:collapse;border-spacing:0;}
+fieldset,img {border:0;}
+/*TODO think about hanlding inheritence differently, maybe letting IE6 fail a bit...*/
+address,caption,cite,code,dfn,em,strong,th,var {font-style:normal;font-weight:normal;}
+ol,ul {list-style:none;}
+caption,th {text-align:left;}
+h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight:normal;text-overflow: ellipsis;word-break:break-all;}
+input,textarea,select {font-family:inherit;font-size:inherit;font-weight:inherit;*font-size:100%; /*to enable resizing for IE*/}
+p{text-overflow: ellipsis;word-break:break-all;}
+.white{color:#fff}
+.whitebg{background:#fff}
+.green{color:#23b6bc;}
+.greenbg{background:#23b6bc;}
+.bule{color:#009eb8}
+.yellow{color:#fff000}
+.hide{display:none}
+.dib{display:inline-block}
+.redbg{background:#e50012}
+.red{color:#e50012}
+.black8{color:#888889}
+.black{color:#000}
+.purplebg{background:#855cde}
+.purple{color:#694fc9}
+
+.w{width:100%}
+.w60{width:60%}
+.w80{width:80%}
+.w90{width:90%}
+.wvw{width:100vw}
+.hvh{width:100vh}
+
+.pa{position:absolute}
+.pf{position:fixed}
+.pr{position:relative}
+.bottom{bottom:0}
+.right{right:0}
+.left{left:0}
+.top{top:0}
+.oh{overflow:hidden}
+.fl{float:left}
+.fr{float: right}
+.cb{clear:both}
+.mt5{margin-top:5%}
+.mt10{margin-top:10%}
+.mt3{margin-top:3%}
+.mb5{margin-bottom:5%}
+.ml3{margin-left:3%}
+.ml5{margin-left:5%}
+.pt5{padding-top:5%}
+.pb3{padding-bottom:3%}
+.ptb3{padding:3% 0}
+.pl5{padding-left:5%}
+.pr5{padding-right:5%;}
+
+
+.tr{text-align:right}
+.tc{text-align:center}
+.fb{font-weight:bold}
+.tdn{text-decoration:none}
+.lh160{line-height:160%}
+.lh120{line-height:120%}
+.lh150{line-height:150%}
+.lh180{line-height:180%}
+.lh200{line-height:200%}
+.lh250{line-height:250%}
+
+.fz05{font-size:.5rem}
+.fz055{font-size:.55rem}
+.fz06{font-size:.6rem}
+.fz063{font-size:.63rem}
+.fz065{font-size:.65rem}
+.fz07{font-size:.7rem}
+.fz08{font-size:.8rem}
+.fz09{font-size:.9rem}
+.fz1{font-size:1rem}
+
+.hide{display:none;}
+
+.imgDiv img{width:100%;height:100%}
+.br100{border-radius:100%}
+/*缩略图*/
+.thumbnails img{width:100%;height:auto}
+/*Flex 布局*/
+.flexbox{display:-webkit-box;display:box;}
+.flexbox2{display:inline-flex;display:-webkit-inline-flex}
+.flex-cell{flex:1;-webkit-flex:1;}
+.flex-full{flex: 0 0 100%;-webkit-flex: 0 0 100%;}
+.flex-lof2{flex: 0 0 50%;-webkit-flex: 0 0 50%;}
+.fdr{flex-direction:row;-webkit-flex-direction:row;}
+.fdrr{flex-direction:row-reverse;-webkit-flex-direction:row-reverse;}
+.fdc{flex-direction:column;-webkit-flex-direction:column;}
+.fdcr{flex-direction:column-reverse;-webkit-flex-direction:column-reverse;}
+.fwno{flex-wrap:nowrap;-webkit-flex-wrap:nowrap;}
+.fww{flex-wrap:wrap;-webkit-flex-wrap:wrap;}
+.fwr{flex-wrap:wrap-reverse;-webkit-flex-wrap:wrap-reverse;}
+.jcfs{justify-content:flex-start;-webkit-justify-content:flex-start;}
+.jcfe{justify-content:flex-end;-webkit-justify-content:flex-end;}
+.jcc{justify-content:center;-webkit-justify-content:center;}
+.jcsb{justify-content:space-between;-webkit-justify-content:space-between;}
+.jccs{justify-content:space-around;-webkit-justify-content:space-around;}
+.aifs{align-items: flex-start;-webkit-align-items: flex-start}
+.aife{align-items: flex-end;-webkit-align-items: flex-end}
+.aic{align-items:center;-webkit-align-items:center}
+.aib{align-items:baseline;-webkit-align-items:baseline}
+.ais{align-items:stretch;-webkit-align-items:stretch}
+
+.bg{background:url("../img/bg.jpg") no-repeat;background-size:100% 100%;width:100vw;height:100vh;z-index:-1;}
+.column .header{background:url("../img/columnheader.png") repeat-x;background-size:100% auto;padding-top:.3rem;}
+.column .content .thumbnails{height:5.7rem;}
+.column .content{background:url("../img/contentbg.jpg") repeat-x #fff;background-position:bottom;background-size: 100% auto;}
+.column .ionic{background:url("../img/ionic1.png") no-repeat;width:.5rem;height:.6rem;background-size:100% 100%;padding: .1rem .05rem;}
+.column .ionic2{background:url("../img/ionic2.png") no-repeat;width:.5rem;height:.6rem;background-size:100% 100%;padding: .1rem .05rem;}
+.column .con1{background:url("../img/con1.png") no-repeat;background-size:100% 100%;padding:.2rem 1rem}
+.column .con2{background:url("../img/con1.png") no-repeat;background-size:100% 100%;padding:.2rem 1rem}
+.column .borderbottom{background:url("../img/borderbottom.png") no-repeat;background-size:100% 100%;height:.5rem; }
+
