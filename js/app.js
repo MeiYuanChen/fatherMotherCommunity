@@ -62,5 +62,5 @@ function updateEndTime()
             $(this).html("已结束");
         }
     });
-
+    setTimeout("updateEndTime()",1000);
 }
