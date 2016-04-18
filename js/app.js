@@ -55,7 +55,7 @@ function updateEndTime()
             var minite = Math.floor((lag / 60) % 60);
             var hour = Math.floor((lag / 3600) % 24);
             var day = Math.floor((lag / 3600) / 24);
-            $(this).html('离结束还剩：'+day+"天"+hour+"小时"+minite+"分"+second+"秒");
+            $(this).html('离结束时间'+day+"天"+hour+"小时"+minite+"分"+second+"秒");
         }
         else{
             $(this).removeClass("settime");
