@@ -39,7 +39,7 @@ $(function(){
     updateEndTime();
     progressBar();
     shownum();
-    backtrack("#backtrack","#Ovote","#Svote","class","Svote vote","Svoted vote","Ovote vote","Ovoted vote","#Svotediv .add","#Ovotediv .add","#Svotediv .less","#Ovotediv .less");
+    backtrack();
 });
 var $sum;
 
@@ -106,14 +106,14 @@ function progressBarbtnChange(btn){
     var $left=$("#progressBarbtnL");
     var $right=$("#progressBarbtnR");
     if(btn=="#Svote2"||btn=="#Svote"){
-        $left.animate({opacity:"1"},100);
+        $left.animate({opacity:"1"},1);
         setTimeout(function(){
-            $left.animate({opacity:"0"},1000);
+            $left.animate({opacity:"0"},500);
         },100);
     }else{
-        $right.animate({opacity:"1"},100);
+        $right.animate({opacity:"1"},1);
         setTimeout(function(){
-            $right.animate({opacity:"0"},1000);
+            $right.animate({opacity:"0"},500);
         },100);
     }
 }
@@ -170,40 +170,39 @@ function removeOnclick(removeclick1,removeclick2){
     $(removeclick2).attr("onclick","");
 }
 
-function toggleSO2(btn,attr,attrcon1,attrcon2,add){
+function toggleSO2(btn,add){
+    var a;
+    CMY.hide('.vote2',' slow');
+    $(btn).find('.img:last-child').fadeOut(100);
 
-    var $img=$(btn),
-        $hidediv=$('.vote2'),
-        $addbtn=$(add);
-
-    if($img.attr(attr)==attrcon1) {
-        $img.attr(attr, attrcon2);
-        addfun(btn,attr,attrcon2,add);
-        CMY.hide($hidediv,500);
-    }
-
+    setTimeout(function(){
+        a=$(btn).find('.img:last-child').attr("style");
+        addfun(a,add,btn);
+    },150);
 
 }
 //跑票按钮
 //backtrack("#backtrack","#Ovote","#Svote","class","Svote vote","Svoted vote","Ovote vote","Ovoted vote","#Svotediv .add","#Ovotediv .add","#Svotediv .less","#Ovotediv .less");
-function backtrack(btn,o,s,attr,Sattrcon1,Sattrcon2,Oattrcon1,Oattrcon2,Sadd,Oadd,Sless,Oless){
-    var $btn=$(btn),
-        $ovotebtn=$(o),
-        $svotebtn=$(s);
-    $btn.click(function(){
+function backtrack(){
+    var $o=$("#Ovote");
+    var $s=$("#Svote");
+    var $Ostyle=$o.find('.img:last-child');
+    var $Sstyle=$s.find('.img:last-child');
+    $("#backtrack").click(function(){
 
-        if($ovotebtn.attr(attr)==Oattrcon2){
-            $ovotebtn.attr(attr,Oattrcon1);
-            $svotebtn.attr(attr,Sattrcon2);
-            addfun(s,attr,Sattrcon2,Sadd);
-            lessfun(o,attr,Oattrcon1,Oless);
-            progressBarbtnChange(s);
+        if($Ostyle.attr("style")=="display: none;"){
+            $Ostyle.attr('style',"display: block;");
+            $Sstyle.attr('style',"display: none;");
+            progressBarbtnChange("#Svote");
+            addfun($Sstyle.attr("style"),"#Svotediv .add","#Svote");
+            lessfun($Ostyle.attr("style"),"#Ovotediv .less");
+            addData('')
         }else {
-            $ovotebtn.attr(attr, Oattrcon2);
-            $svotebtn.attr(attr, Sattrcon1);
-            addfun(o,attr,Oattrcon2,Oadd);
-            lessfun(s,attr,Sattrcon1,Sless);
-            progressBarbtnChange(o);
+            $Ostyle.attr('style',"display: none;");
+            $Sstyle.attr('style',"display: block;");
+            progressBarbtnChange("#Ovote");
+            addfun($Ostyle.attr("style"),"#Ovotediv .add","#Ovote");
+            lessfun($Sstyle.attr("style"),"#Svotediv .less");
 
         }
 
@@ -211,43 +210,39 @@ function backtrack(btn,o,s,attr,Sattrcon1,Sattrcon2,Oattrcon1,Oattrcon2,Sadd,Oad
 
 }
 //-1动画,只在我要跑票按钮用到
-function lessfun(btn,attr,attrcon1,less){
-
-    var $img=$(btn),
-        $lessbtn=$(less);
-
-    if($img.attr(attr)==attrcon1){
-        $lessbtn.animate({top:".2rem",opacity:"1"},500);
+function lessfun(a,less){
+    var $lessbtn=$(less);
+    if(a=="display: block;"){
+        $lessbtn.animate({top:".2rem",opacity:"1"},1);
         setTimeout(function(){
-            $lessbtn.animate({opacity:"0",top:"1rem"},1);
-        },500);
+            $lessbtn.animate({opacity:"0",top:"1rem"},500);
+        },2);
     }
 }
 
 //+1动画
-function addfun(btn,attr,attrcon2,add){
-    var $img=$(btn),
-        $addbtn=$(add);
-    if($img.attr(attr)==attrcon2){
-        $addbtn.animate({top:".2rem",opacity:"1"},500);
-        setTimeout(function(){
-            $addbtn.animate({opacity:"0",top:"1rem"},1);
-        },500);
-    }
-    addData(btn,attr,attrcon2,add);
-}
-function addData(btn,attr,attrcon2,add){
+function addfun(a,add,btn){
+    var $addbtn=$(add);
 
-    var $img=$(btn),
-        $addbtn=$(add);
-    if($img.attr(attr)==attrcon2 && btn=="#Svote"){
-        shownum(1,0,btn);
-    }else if(btn=="#Ovote"){
-        shownum(0,1,btn);
+    if(a=="display: none;"){
+        $addbtn.animate({top:".2rem",opacity:"1"},1);
+        setTimeout(function(){
+            $addbtn.animate({opacity:"0",top:"1rem"},500);
+        },2);
+        addData(btn);
+    }
+
+
+}
+function addData(btn){
+    if(btn=="#Ovote"){
+        shownum(0,1);
+    }else{
+        shownum(1,0);
     }
 }
 //angular数据接上之后可能删掉,用于显示info的数字
-function shownum(Sadd,Oadd,btn){
+function shownum(Sadd,Oadd){
     var $Soddnum,$Ooddnum,
         $sdata=$("span[data-Soddnum]"),
         $sdataVal=$("[data-Soddnum]").attr("data-Soddnum"),
@@ -273,7 +268,6 @@ function shownum(Sadd,Oadd,btn){
     var sss=100/($sum/$sdataDiv),
         ooo=100/($sum/$odataDiv);
 
-    //progressBarbtnPosition(sss);
 }
 function toggleSO(btn,attr,attrcon1,attrcon2){
 

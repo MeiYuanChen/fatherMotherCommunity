@@ -161,11 +161,11 @@ textarea::-webkit-input-placeholder:after{
 .tips .fl:first-child{background:url("../img/tipsbgL.png") no-repeat;height:1.5rem;width:3%;background-size:100% 100%;}
 .tips .fr{background:url("../img/tipsbgR.png") no-repeat;height:1.5rem;width:3%;background-size:100% 100%;}
 .vote{height:1.5rem;width:2rem;}
+.vote img{height:100%;width:100%}
 .vote2{height:.7rem;width:2rem;}
 .votediv{padding:1rem 0;}
 .votediv .vote{position:relative;z-index:5}
-.Svoted{background:url("../img/Svoted.png") no-repeat;background-size:100% 100%;}
-.Svote{background:url("../img/Svote.png") no-repeat;background-size:100% 100%;}
+
 .Ovoted{background:url("../img/Ovoted.png") no-repeat;background-size:100% 100%;}
 .Ovote{background:url("../img/Ovote.png") no-repeat;background-size:100% 100%;}
 .Svote2{background:url("../img/Svote2.jpg") no-repeat;background-size:100% 100%;}
