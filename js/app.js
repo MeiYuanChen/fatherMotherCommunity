@@ -117,26 +117,13 @@ function progressBarbtnChange(btn){
         },100);
     }
 }
-function hoverbtnfun(){ //正方发表按钮
-        var $btn=$("#hoverbtn"),
-            $a="squarepost",
-            $formcss=$("#form").attr("class");
+function hoverbtnfun(btn){ //正方发表按钮
+    var $btnlast=$(btn).find(".img:last");
+        $btnlast.attr("style","display:none");
+    setTimeout(function(){
+        $btnlast.attr("style","display:block");
+    },100);
 
-        if($formcss=="pf bottom left w whitebgc post cb oh squarepost mw700"){
-            $a="squarepost";
-            $btn.removeClass($a+"btnbg2")
-                .addClass($a+"btnbg2");
-        }else{
-            $a="oppositionpost";
-
-            $btn.removeClass($a+"btnbg2")
-                .addClass($a+"btnbg2");
-        }
-
-        setTimeout(function(){
-            $btn.removeClass($a+"btnbg2");
-            $btn.addClass($a+"btnbg1");
-        },100);
 }
 function verification(){//验证文本框是否为空
     var reg1=/\s/,//空白行
@@ -268,6 +255,28 @@ function shownum(Sadd,Oadd){
     var sss=100/($sum/$sdataDiv),
         ooo=100/($sum/$odataDiv);
 
+}
+function togglebtnSO(btn){
+    var $hoverbtn=$("#hoverbtn").find("div:last"),$text=$("textarea"),$form=$("#form"),$btn=$(btn),$btnimg=$(btn).find("img:last");
+
+    if($btnimg.attr("style")=="display:none"){
+        $btnimg.attr("style","display:block");
+        $btn.removeClass("togglebtnml");
+        $form.removeClass("oppositionpost")
+            .addClass("squarepost");
+        $text.attr("placeholder", "正方")
+            .removeClass("textml");
+        $hoverbtn.attr('style','display:block');
+
+    }else{
+        $btnimg.attr("style","display:none");
+            $btn.addClass("togglebtnml");;
+        $form.removeClass("squarepost")
+            .addClass("oppositionpost");
+        $text.attr("placeholder", "反方")
+                .addClass("textml");
+        $hoverbtn.attr('style','display:none');
+    }
 }
 function toggleSO(btn,attr,attrcon1,attrcon2){
 

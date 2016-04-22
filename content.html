@@ -33,18 +33,23 @@
 <!--投票按钮开始-->
 <div class="w90 ml5 mr5 oh pr cb votediv">
     <!--正方按钮开始-->
-    <div class="fl" id="Svotediv" onclick="CMY.show('#backtrack',1800);hoverbtnfun2('#Svote2','Svote2','Svoted2');toggleSO2('#Svote','#Svotediv .add');removeOnclick('#Svotediv','#Ovotediv');">
+    <div class="fl" id="Svotediv" onclick="CMY.show('#backtrack',1800);hoverbtnfun('#Svote2');toggleSO2('#Svote','#Svotediv .add');removeOnclick('#Svotediv','#Ovotediv');">
         <div class="add pa fz06 tc">+1</div>
         <div class="less pa fz06 tc">-1</div>
         <div class="vote oh pr" id="Svote">
             <img class="Svoted img top left pa" src="img/Svoted.png">
             <img class="Svote img pa top left"  src="img/Svote.png"/>
         </div>
-        <div class="Svote2 vote2 pa left bottom" id="Svote2"></div>
+        <div class="vote2 pa left bottom" id="Svote2">
+            <div class="w h pr">
+                <img class="img pa left top w h"  src="img/Svoted2.jpg"/>
+                <img class="img pa left top w h" src="img/Svote2.jpg">
+            </div>
+        </div>
     </div>
     <!--正方按钮结束-->
     <!--反方按钮开始-->
-    <div class="fr" id="Ovotediv" onclick="CMY.show('#backtrack',1800);hoverbtnfun2('#Ovote2','Ovote2','Ovoted2');toggleSO2('#Ovote','#Ovotediv .add');removeOnclick('#Svotediv','#Ovotediv');">
+    <div class="fr" id="Ovotediv" onclick="CMY.show('#backtrack',1800);hoverbtnfun('#Ovote2');toggleSO2('#Ovote','#Ovotediv .add');removeOnclick('#Svotediv','#Ovotediv');">
         <div class="less pa fz06 tc">-1</div>
         <div class="add pa fz06 tc">+1</div>
 
@@ -53,7 +58,12 @@
             <img class="Ovote img top left pa"  src="img/Ovote.png"/>
 
         </div>
-        <div class="Ovote2 vote2 pa right bottom" id="Ovote2"></div>
+        <div class="vote2 pa right bottom" id="Ovote2">
+            <div class="w h pr">
+                <img class="img pa left top w h"  src="img/Ovoted2.jpg"/>
+                <img class="img pa left top w h" src="img/Ovote2.jpg">
+            </div>
+        </div>
     </div>
     <!--反方按钮结束-->
     <!--我要跑票按钮-->
@@ -189,13 +199,26 @@
 </ul>
 <!--评论结束-->
 <!--发表评论开始-->
-<div class="pf bottom left w whitebgc post cb oh squarepost mw700" id="form">
-    <img id="togglebtn" class="togglebtn ml2 fl" src="img/togglebtn1.jpg" onclick="toggleSO('#togglebtn','src','img/togglebtn1.jpg','img/togglebtn2.jpg');"/>
+<div class="pf bottom left w whitebgc post cb oh mw700 squarepost" id="form">
+    <div id="togglebtn" class="togglebtn ml2 fl pr" onclick="togglebtnSO('#togglebtn');">
+        <img  class="img pa top left"  src="img/togglebtn2.jpg"/>
+        <img class="img pa top left" src="img/togglebtn1.jpg"/>
+    </div>
     <div class="fl">
         <textarea placeholder="正方" class="text fz06 lh130" onfocus="textfocus();" onblur="textblur();"></textarea>
     </div>
     <div class="fr mr5">
-        <a class="button tdn dib" id="hoverbtn" onclick="hoverbtnfun();verification();"></a>
+        <a class="button tdn dib pr oh" id="hoverbtn" onclick="verification();">
+            <div class="pa left w h oh top oppositionpostbtn greenbg2" onclick="hoverbtnfun('#hoverbtn .oppositionpostbtn');">
+                <img class="img pa left top" src="img/oppositionpostbtn2.jpg">
+                <img class="img pa left top" src="img/oppositionpostbtn1.jpg">
+            </div>
+            <div class="pa left w h oh top squarepostbtn purplebg" onclick="hoverbtnfun('#hoverbtn .squarepostbtn');">
+                <img class="img pa left top" src="img/squarepostbtn2.jpg">
+                <img class="img pa left top" src="img/squarepostbtn1.jpg">
+            </div>
+
+        </a>
     </div>
 </div>
 <div class="w80 ml10 mr10 cb oh pf tips hide tipsform" id="error">
