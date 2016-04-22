@@ -33,19 +33,26 @@
 <!--投票按钮开始-->
 <div class="w90 ml5 mr5 oh pr cb votediv">
     <!--正方按钮开始-->
-    <div class="fl" id="Svotediv" onclick="CMY.show('#backtrack',1800);hoverbtnfun2('#Svote2','Svote2','Svoted2');toggleSO2('#Svote','class','Svote vote','Svoted vote','#Svotediv .add');removeOnclick('#Svotediv','#Ovotediv');">
+    <div class="fl" id="Svotediv" onclick="CMY.show('#backtrack',1800);hoverbtnfun2('#Svote2','Svote2','Svoted2');toggleSO2('#Svote','#Svotediv .add');removeOnclick('#Svotediv','#Ovotediv');">
         <div class="add pa fz06 tc">+1</div>
         <div class="less pa fz06 tc">-1</div>
-        <div class="Svote vote" id="Svote"></div>
+        <div class="vote oh pr" id="Svote">
+            <img class="Svoted img top left pa" src="img/Svoted.png">
+            <img class="Svote img pa top left"  src="img/Svote.png"/>
+        </div>
         <div class="Svote2 vote2 pa left bottom" id="Svote2"></div>
     </div>
     <!--正方按钮结束-->
     <!--反方按钮开始-->
-    <div class="fr" id="Ovotediv" onclick="CMY.show('#backtrack',1800);hoverbtnfun2('#Ovote2','Ovote2','Ovoted2');toggleSO2('#Ovote','class','Ovote vote','Ovoted vote','#Ovotediv .add');removeOnclick('#Svotediv','#Ovotediv');">
+    <div class="fr" id="Ovotediv" onclick="CMY.show('#backtrack',1800);hoverbtnfun2('#Ovote2','Ovote2','Ovoted2');toggleSO2('#Ovote','#Ovotediv .add');removeOnclick('#Svotediv','#Ovotediv');">
         <div class="less pa fz06 tc">-1</div>
         <div class="add pa fz06 tc">+1</div>
 
-        <div class="Ovote vote" id="Ovote"></div>
+        <div class="vote oh pr" id="Ovote">
+            <img class="Ovoted img top left pa" src="img/Ovoted.png">
+            <img class="Ovote img top left pa"  src="img/Ovote.png"/>
+
+        </div>
         <div class="Ovote2 vote2 pa right bottom" id="Ovote2"></div>
     </div>
     <!--反方按钮结束-->
@@ -56,8 +63,8 @@
         <!--vs图标-->
     <img class="vsImg pa" src="img/vs.jpg">
     <div class="pa info">
-        <div class="purple fz06 fl">正方&nbsp;<span data-Soddnum="358"></span>票</div>
-        <div class="green fz06 fr">反方&nbsp;<span data-Ooddnum="666"></span>票</div>
+        <div class="purple fz06 fl">正方&nbsp;<span data-Soddnum="512"></span>票</div>
+        <div class="green fz06 fr">反方&nbsp;<span data-Ooddnum="512"></span>票</div>
     </div>
 
     <!--信息显示结束-->
@@ -78,12 +85,12 @@
     <div class="progressBarBorderOut oh pa" id="progressBarBorderOut" >
             <!--oddnum单数 sum总数-->
             <!--正方投票人数(紫色进度条表示)-->
-        <div class="pr purplebg h SprogressBar fl" data-Soddnum="358" id="SprogressBar">
+        <div class="pr purplebg h SprogressBar fl" data-Soddnum="512" id="SprogressBar">
             <div class="progressBarBorderIn oh w pa top left"></div>
             <div class="progressBarBorderIn oh w pa bottom left"></div>
         </div>
             <!--反方投票人数(绿色进度条表示)-->
-        <div class="pr greenbg2 h OprogressBar fl" data-Ooddnum="666" id="OprogressBar">
+        <div class="pr greenbg2 h OprogressBar fl" data-Ooddnum="512" id="OprogressBar">
             <div class="progressBarBorderIn oh w pa top left"></div>
             <div class="progressBarBorderIn oh w pa bottom left"></div>
         </div>
