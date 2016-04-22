@@ -122,7 +122,7 @@ function hoverbtnfun(){ //正方发表按钮
             $a="squarepost",
             $formcss=$("#form").attr("class");
 
-        if($formcss=="pf bottom left w whitebgc post cb oh squarepost"){
+        if($formcss=="pf bottom left w whitebgc post cb oh squarepost mw700"){
             $a="squarepost";
             $btn.removeClass($a+"btnbg2")
                 .addClass($a+"btnbg2");
