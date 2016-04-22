@@ -6,7 +6,7 @@
     <title>爸妈生活链-内容</title>
     <link rel="stylesheet" href="css/app.css">
 </head>
-<body class="contenthtml" onload="endtime();">
+<body class="contenthtml mw700">
 <div class="bg2 pb3 pt3">
     <div class="title oh cb w90 pr5 pl5 mt3 mb3">
         <a class="back dib fl"></a>
@@ -33,17 +33,63 @@
 <!--投票按钮开始-->
 <div class="w90 ml5 mr5 oh pr cb votediv">
     <!--正方按钮开始-->
-    <div class="fl" id="Svotediv" onclick="hoverbtnfun2('#Svote2','Svote2','Svoted2');toggleSO2('#Svote','class','Svote vote','Svoted vote','#Svote','#Ovote','Svote vote','Ovote vote','#Svotediv','#Ovotediv');">
+    <div class="fl" id="Svotediv" onclick="CMY.show('#backtrack',1800);hoverbtnfun2('#Svote2','Svote2','Svoted2');toggleSO2('#Svote','class','Svote vote','Svoted vote','#Svotediv .add');removeOnclick('#Svotediv','#Ovotediv');">
+        <div class="add pa fz06 tc">+1</div>
+        <div class="less pa fz06 tc">-1</div>
         <div class="Svote vote" id="Svote"></div>
         <div class="Svote2 vote2 pa left bottom" id="Svote2"></div>
     </div>
     <!--正方按钮结束-->
     <!--反方按钮开始-->
-    <div class="fr" id="Ovotediv" onclick="hoverbtnfun2('#Ovote2','Ovote2','Ovoted2');toggleSO2('#Ovote','class','Ovote vote','Ovoted vote','#Svote','#Ovote','Svote vote','Ovote vote','#Svotediv','#Ovotediv');">
+    <div class="fr" id="Ovotediv" onclick="CMY.show('#backtrack',1800);hoverbtnfun2('#Ovote2','Ovote2','Ovoted2');toggleSO2('#Ovote','class','Ovote vote','Ovoted vote','#Ovotediv .add');removeOnclick('#Svotediv','#Ovotediv');">
+        <div class="less pa fz06 tc">-1</div>
+        <div class="add pa fz06 tc">+1</div>
+
         <div class="Ovote vote" id="Ovote"></div>
         <div class="Ovote2 vote2 pa right bottom" id="Ovote2"></div>
     </div>
     <!--反方按钮结束-->
+    <!--我要跑票按钮-->
+
+    <div class="backtrack pa bottom hide" id="backtrack"></div>
+    <!--信息显示开始-->
+        <!--vs图标-->
+    <img class="vsImg pa" src="img/vs.jpg">
+    <div class="pa info">
+        <div class="purple fz06 fl">正方&nbsp;<span data-Soddnum="358"></span>票</div>
+        <div class="green fz06 fr">反方&nbsp;<span data-Ooddnum="666"></span>票</div>
+    </div>
+
+    <!--信息显示结束-->
+    <!--进度条开始-->
+        <!--进度条中间的小按钮-->
+    <div class="pr w80 ml10 mr10 h105rem ">
+        <div class="progressBarbtnDiv pa oh" id="progressBarbtn">
+            <div class="pr w h oh">
+                <img class="img pa left hideopacity" src="img/left.png" id="progressBarbtnL"/>
+                <img class="img pa right hideopacity" src="img/right.png" id="progressBarbtnR"/>
+                <div class="progressBarbtn pa" ></div>
+            </div>
+
+
+        </div>
+    </div>
+        <!--进度条-->
+    <div class="progressBarBorderOut oh pa" id="progressBarBorderOut" >
+            <!--oddnum单数 sum总数-->
+            <!--正方投票人数(紫色进度条表示)-->
+        <div class="pr purplebg h SprogressBar fl" data-Soddnum="358" id="SprogressBar">
+            <div class="progressBarBorderIn oh w pa top left"></div>
+            <div class="progressBarBorderIn oh w pa bottom left"></div>
+        </div>
+            <!--反方投票人数(绿色进度条表示)-->
+        <div class="pr greenbg2 h OprogressBar fl" data-Ooddnum="666" id="OprogressBar">
+            <div class="progressBarBorderIn oh w pa top left"></div>
+            <div class="progressBarBorderIn oh w pa bottom left"></div>
+        </div>
+
+    </div>
+    <!--进度条结束-->
 </div>
 <!--投票按钮结束-->
 <div class="hr w90 ml5 mr5 mt5 mb5"></div>
@@ -128,7 +174,7 @@
     </li>
     <!--反方评论结束-->
     <!--加载更多-->
-    <div class="w90 ml5 mr5 more cb oh tips" onclick="more()" id="morebtn">
+    <div class="w90 ml5 mr5 more cb oh tips pr" onclick="more()" id="morebtn">
         <div class="fl"></div>
         <div class="purplebg tc fl white fz065 oh">加载更多</div>
         <div class="fr"></div>
@@ -136,7 +182,7 @@
 </ul>
 <!--评论结束-->
 <!--发表评论开始-->
-<div class="pf bottom left w whitebgc post cb oh squarepost" id="form">
+<div class="pf bottom left w whitebgc post cb oh squarepost mw700" id="form">
     <img id="togglebtn" class="togglebtn ml2 fl" src="img/togglebtn1.jpg" onclick="toggleSO('#togglebtn','src','img/togglebtn1.jpg','img/togglebtn2.jpg');"/>
     <div class="fl">
         <textarea placeholder="正方" class="text fz06 lh130" onfocus="textfocus();" onblur="textblur();"></textarea>
@@ -146,14 +192,18 @@
     </div>
 </div>
 <div class="w80 ml10 mr10 cb oh pf tips hide tipsform" id="error">
+    <div class="pr h105rem">
     <div class="fl"></div>
     <div class="purplebg tc fl white fz065 oh">不能为空</div>
     <div class="fr"></div>
+    </div>
 </div>
 <div class="w80 ml10 mr10 cb oh pf tips hide tipsform" id="success">
+    <div class="pr h105rem">
     <div class="fl"></div>
     <div class="purplebg tc fl white fz065 oh">发表成功</div>
     <div class="fr"></div>
+    </div>
 </div>
 <!--发表评论结束-->
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>

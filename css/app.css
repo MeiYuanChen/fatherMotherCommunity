@@ -12,10 +12,12 @@ p{text-overflow: ellipsis;word-break:break-all;}
 .whitebg{background:#fff}
 .green{color:#23b6bc;}
 .greenbg{background:#23b6bc;}
+.greenbg2{background:#28a0a3}
 .bule{color:#009eb8}
 .yellow{color:#fff000}
 .hide{display:none}
-.dib{display:inline-block}
+.hideopacity{opacity:0}
+.dib{display:inline-block;}
 .redbg{background:#e50012}
 .red{color:#e50012}
 .black8{color:#888889}
@@ -25,6 +27,8 @@ p{text-overflow: ellipsis;word-break:break-all;}
 .whitebgc{background:#c9c9ca}
 
 .w{width:100%}
+.mw700{max-width:768px;}
+.h{height:100%}
 .w60{width:60%}
 .w80{width:80%}
 .w90{width:90%}
@@ -32,6 +36,7 @@ p{text-overflow: ellipsis;word-break:break-all;}
 .wvw{width:100vw}
 .hvh{width:100vh}
 .h1px{height:1px}
+.h105rem{height:1.5rem}
 
 .pa{position:absolute}
 .pf{position:fixed}
@@ -97,7 +102,7 @@ p{text-overflow: ellipsis;word-break:break-all;}
 .thumbnails img{width:100%;height:auto}
 .hr{border:1px dashed #694fc9}
 
-.bg{background:url("../img/bg.jpg") no-repeat;background-size:100% 100%;width:100vw;height:100vh;z-index:-1;}
+.bg{background:url("../img/bg.jpg") no-repeat;background-size:100% 100%;width:100%;height:100vh;z-index:-1;}
 .column .header{background:url("../img/columnheader.png") repeat-x;background-size:100% auto;padding-top:.3rem;}
 .column .content .thumbnails{height:5.7rem;}
 .column .content{background:url("../img/contentbg.jpg") repeat-x #fff;background-position:bottom;background-size: 100% auto;}
@@ -106,7 +111,7 @@ p{text-overflow: ellipsis;word-break:break-all;}
 .column .con1{background:url("../img/con1.png") no-repeat;background-size:100% 100%;padding:.2rem 1rem}
 .column .con2{background:url("../img/con1.png") no-repeat;background-size:100% 100%;padding:.2rem 1rem}
 .column .borderbottom{background:url("../img/borderbottom.png") no-repeat;background-size:100% 100%;height:.5rem; }
-.bg2{background:url("../img/bg2.jpg") no-repeat;background-size:100% 100%;width:100vw;height:auto;}
+.bg2{background:url("../img/bg2.jpg") no-repeat;background-size:100% 100%;width:100%;height:auto;}
 .contenthtml .con img{width:100%;margin:5% 0 0 0;}
 .contenthtml .settime{width:76%}
 .contenthtml{padding-bottom:2rem}
@@ -151,12 +156,14 @@ textarea::-webkit-input-placeholder:after{
 .togglebtnml{margin-left:4.8% !important;}
 .morehover{-webkit-animation: toopacity .4s;}
 .tipsform{bottom:2.5rem}
-.tips .purplebg{width:94%;line-height:220%;height:1.5rem;}
+
+.tips .purplebg{width: 94.5%;  line-height: 220%;  height: 1.5rem;  position: absolute;  top: 0;  left: 2.8%;}
 .tips .fl:first-child{background:url("../img/tipsbgL.png") no-repeat;height:1.5rem;width:3%;background-size:100% 100%;}
 .tips .fr{background:url("../img/tipsbgR.png") no-repeat;height:1.5rem;width:3%;background-size:100% 100%;}
 .vote{height:1.5rem;width:2rem;}
 .vote2{height:.7rem;width:2rem;}
 .votediv{padding:1rem 0;}
+.votediv .vote{position:relative;z-index:5}
 .Svoted{background:url("../img/Svoted.png") no-repeat;background-size:100% 100%;}
 .Svote{background:url("../img/Svote.png") no-repeat;background-size:100% 100%;}
 .Ovoted{background:url("../img/Ovoted.png") no-repeat;background-size:100% 100%;}
@@ -165,3 +172,16 @@ textarea::-webkit-input-placeholder:after{
 .Svoted2{background:url("../img/Svoted2.jpg") no-repeat;background-size:100% 100%;}
 .Ovote2{background:url("../img/Ovote2.jpg") no-repeat;background-size:100% 100%;}
 .Ovoted2{background:url("../img/Ovoted2.jpg") no-repeat;background-size:100% 100%;}
+.votediv .fl .add,.votediv .fl .less{color:#855cdd}
+.votediv .fr .add,.votediv .fr .less{color:#28a0a3}
+.votediv .add,.votediv .less{width:2rem;z-index:-1;top:1rem;opacity:0}
+
+.backtrack{background:url("../img/backtrack.jpg") no-repeat;background-size:100% 100%;width:25%;height:.7rem;margin-left:37.5%}
+.progressBarBorderOut{border:1px solid #000;height:.3rem;width:80%;z-index:0;left:10%;top:45%;}
+.progressBarBorderIn{height:1px;box-shadow:0 0 5px  #fff;background:rgba(255,255,255,.5);}
+.progressBarbtn{background:url("../img/progressBarbtn.png") no-repeat;background-size:100% 100%;width:1rem;height:1rem;left:1.5rem;}
+.progressBarbtnDiv{left:46%;z-index:1;top:17%;height:1rem;width:4rem;}
+.progressBarbtnDiv .img{width:2rem;margin-top:.35rem;height: .3rem;}
+
+.vsImg{width:1rem;height:.8rem;top:.6rem;left:47%;}
+.info{width:72%;left:14%;top:.8rem;}

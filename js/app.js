@@ -26,22 +26,23 @@
     doc.addEventListener('DOMContentLoaded', recalc, false);
 })
 (document, window);
+var CMY={};
+CMY.hide=function(e,time){
+    return $(e).fadeOut(time);
+};
+
+CMY.show=function(e,time){
+    return $(e).fadeIn(time);
+};
 
 $(function(){
     updateEndTime();
+    progressBar();
+    shownum();
+    backtrack("#backtrack","#Ovote","#Svote","class","Svote vote","Svoted vote","Ovote vote","Ovoted vote","#Svotediv .add","#Ovotediv .add","#Svotediv .less","#Ovotediv .less");
 });
-//倒计时已结束时样式设置
-function endtime(){
-    var divid=$("#time");
-    var divid1=divid.find("#1");
-    var divdiv=divid.find(".timebg");
-    var text=divid.find("#1").text();
-    console.log(text)
-        if(text=="已结束"){
-            divid1.css({"width":"12%"});
-            divdiv.css({"width":"42%","background-size":"contain"});
-    }
-}
+var $sum;
+
 //倒计时函数
 function updateEndTime()
 {
@@ -88,6 +89,7 @@ function updateEndTime()
     });
     setTimeout("updateEndTime()",1000);
 }
+
 function hoverbtnfun2(btn,class1,class2){
     var $btn=$(btn);
 
@@ -97,12 +99,28 @@ function hoverbtnfun2(btn,class1,class2){
             $btn.removeClass(class2)
                 .addClass(class1);
         },100);
-
+    progressBarbtnChange(btn);
+}
+//进度条发光样式改变
+function progressBarbtnChange(btn){
+    var $left=$("#progressBarbtnL");
+    var $right=$("#progressBarbtnR");
+    if(btn=="#Svote2"||btn=="#Svote"){
+        $left.animate({opacity:"1"},100);
+        setTimeout(function(){
+            $left.animate({opacity:"0"},1000);
+        },100);
+    }else{
+        $right.animate({opacity:"1"},100);
+        setTimeout(function(){
+            $right.animate({opacity:"0"},1000);
+        },100);
+    }
 }
 function hoverbtnfun(){ //正方发表按钮
-        var $btn=$("#hoverbtn");
-        var $a="squarepost";
-        var $formcss=$("#form").attr("class");
+        var $btn=$("#hoverbtn"),
+            $a="squarepost",
+            $formcss=$("#form").attr("class");
 
         if($formcss=="pf bottom left w whitebgc post cb oh squarepost"){
             $a="squarepost";
@@ -121,17 +139,21 @@ function hoverbtnfun(){ //正方发表按钮
         },100);
 }
 function verification(){//验证文本框是否为空
-    var reg1=/\s/;//空白行
-    var $text=$("textarea").val();
+    var reg1=/\s/,//空白行
+        $text=$("textarea").val();
     if(reg1.test($text)||$text==""){
-        $("#error").fadeIn("slow");
+
+        CMY.show("#error","slow");
         setTimeout(function(){
-            $("#error").fadeOut("slow");
+
+            CMY.hide("#error","slow");
         },3000);
     }else{
-        $("#success").fadeIn("slow");
+
+        CMY.show("#success","slow");
         setTimeout(function(){
-            $("#success").fadeOut("slow");
+
+            CMY.hide("#success","slow");
         },3000);
     }
 
@@ -143,33 +165,122 @@ function textfocus(){//优化体验
 function textblur(){//优化体验
     $("body").css("overflow","auto");
 }
-function toggleSO2(btn,attr,attrcon1,attrcon2,btn1,btn2,Sattrcon1,Oattrcon1,removeclick1,removeclick2){
-    var $Svote=$(btn1);
-    var $Ovote=$(btn2);
-    var $img=$(btn);
-    var $hidediv=$('.vote2');
-    console.log(attrcon1);console.log(attrcon2);
-    if($img.attr(attr)==attrcon1) {
-        $img.attr(attr, attrcon2);
-        $hidediv.fadeOut(1000);
-    }
-    if($Svote.attr(attr)==attrcon2){
-        $Ovote.attr(attr,Oattrcon1);
-    }
-    if($Ovote.attr(attr)==attrcon2){
-        $Svote.attr(attr,Sattrcon1);
-    }
+function removeOnclick(removeclick1,removeclick2){
     $(removeclick1).attr("onclick","");
     $(removeclick2).attr("onclick","");
+}
+
+function toggleSO2(btn,attr,attrcon1,attrcon2,add){
+
+    var $img=$(btn),
+        $hidediv=$('.vote2'),
+        $addbtn=$(add);
+
+    if($img.attr(attr)==attrcon1) {
+        $img.attr(attr, attrcon2);
+        addfun(btn,attr,attrcon2,add);
+        CMY.hide($hidediv,500);
+    }
 
 
 }
+//跑票按钮
+//backtrack("#backtrack","#Ovote","#Svote","class","Svote vote","Svoted vote","Ovote vote","Ovoted vote","#Svotediv .add","#Ovotediv .add","#Svotediv .less","#Ovotediv .less");
+function backtrack(btn,o,s,attr,Sattrcon1,Sattrcon2,Oattrcon1,Oattrcon2,Sadd,Oadd,Sless,Oless){
+    var $btn=$(btn),
+        $ovotebtn=$(o),
+        $svotebtn=$(s);
+    $btn.click(function(){
+
+        if($ovotebtn.attr(attr)==Oattrcon2){
+            $ovotebtn.attr(attr,Oattrcon1);
+            $svotebtn.attr(attr,Sattrcon2);
+            addfun(s,attr,Sattrcon2,Sadd);
+            lessfun(o,attr,Oattrcon1,Oless);
+            progressBarbtnChange(s);
+        }else {
+            $ovotebtn.attr(attr, Oattrcon2);
+            $svotebtn.attr(attr, Sattrcon1);
+            addfun(o,attr,Oattrcon2,Oadd);
+            lessfun(s,attr,Sattrcon1,Sless);
+            progressBarbtnChange(o);
+
+        }
+
+    });
+
+}
+//-1动画,只在我要跑票按钮用到
+function lessfun(btn,attr,attrcon1,less){
+
+    var $img=$(btn),
+        $lessbtn=$(less);
+
+    if($img.attr(attr)==attrcon1){
+        $lessbtn.animate({top:".2rem",opacity:"1"},500);
+        setTimeout(function(){
+            $lessbtn.animate({opacity:"0",top:"1rem"},1);
+        },500);
+    }
+}
+
+//+1动画
+function addfun(btn,attr,attrcon2,add){
+    var $img=$(btn),
+        $addbtn=$(add);
+    if($img.attr(attr)==attrcon2){
+        $addbtn.animate({top:".2rem",opacity:"1"},500);
+        setTimeout(function(){
+            $addbtn.animate({opacity:"0",top:"1rem"},1);
+        },500);
+    }
+    addData(btn,attr,attrcon2,add);
+}
+function addData(btn,attr,attrcon2,add){
+
+    var $img=$(btn),
+        $addbtn=$(add);
+    if($img.attr(attr)==attrcon2 && btn=="#Svote"){
+        shownum(1,0,btn);
+    }else if(btn=="#Ovote"){
+        shownum(0,1,btn);
+    }
+}
+//angular数据接上之后可能删掉,用于显示info的数字
+function shownum(Sadd,Oadd,btn){
+    var $Soddnum,$Ooddnum,
+        $sdata=$("span[data-Soddnum]"),
+        $sdataVal=$("[data-Soddnum]").attr("data-Soddnum"),
+        $odata=$("span[data-Ooddnum]"),
+        $odataVal=$("[data-Ooddnum]").attr("data-Ooddnum"),
+        $odataDiv=$("#OprogressBar[data-Ooddnum]").attr("data-Ooddnum"),
+        $sdataDiv=$("#SprogressBar[data-Soddnum]").attr("data-Soddnum");
+    if(!Sadd){
+        Sadd=0;
+    }
+    if(!Oadd){
+        Oadd=0;
+    }
+
+    $sdataDiv=Number($sdataVal)+Number(Sadd);
+    $Soddnum=$sdataDiv;
+    $odataDiv=Number($odataVal)+Number(Oadd);
+    $Ooddnum=$odataDiv;
+
+    $sum=$Soddnum+$Ooddnum;//总投票人数
+    $sdata.text($Soddnum);
+    $odata.text($Ooddnum);
+    var sss=100/($sum/$sdataDiv),
+        ooo=100/($sum/$odataDiv);
+
+    //progressBarbtnPosition(sss);
+}
 function toggleSO(btn,attr,attrcon1,attrcon2){
 
-    var $form=$("#form");
-    var $img=$(btn);
-    var $text=$("textarea");
-    var $btn=$("#hoverbtn");
+    var $form=$("#form"),
+        $img=$(btn),
+        $text=$("textarea"),
+        $btn=$("#hoverbtn");
 
         if($img.attr(attr)==attrcon1){
             $img.attr(attr,attrcon2)
@@ -198,3 +309,33 @@ function more(){
         $("#morebtn").removeClass("morehover");
     },400);
 }
+//进度条长度
+function progressBar(){
+
+    var hundredPercent=100,//百分百
+        unit='%',//单位
+
+    //紫色进度条宽度 和 绿色进度条宽度
+        $sbar=$("#SprogressBar"),
+        $obar=$("#OprogressBar"),
+    //正方投票人数(紫色进度条表示) 和 反方投票人数(绿色进度条表示)
+        $Soddnumdata=$("[data-Soddnum]").attr("data-Soddnum"),
+        $Ooddnumdata=$("[data-Ooddnum]").attr("data-Ooddnum"),
+        $Soddnum=Number($Soddnumdata),
+        $Ooddnum=Number($Ooddnumdata);
+        $sum=$Soddnum+$Ooddnum;//总投票人数
+    //计算出 紫色进度条宽度 和 绿色进度条宽度
+    var $sbarWidth=100/($sum/$Soddnum),
+        $obarWidth=100/($sum/$Ooddnum);
+    //设置 紫色进度条宽度 和 绿色进度条宽度
+    $sbar.css("width",$sbarWidth+unit);
+    $obar.css("width",$obarWidth+unit);
+    progressBarbtnPosition($sbarWidth);
+}
+//设置进度条中间的小按钮位置
+function progressBarbtnPosition(leftWidth){
+    var unit='%',//单位
+        $btn=$("#progressBarbtn");
+    $btn.css('left',leftWidth-17+unit);
+}
+
