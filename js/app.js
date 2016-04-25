@@ -321,14 +321,16 @@ var browser = {
 if (browser.versions.iPhone || browser.versions.iPad || browser.versions.ios) {
     $(".tips .purplebg").css("width","94.5%");
     console.log('ios');
-    //var $formtext=$("#form .text");
-    //var $form=$("#form");
-    //$formtext.focus(function(){
-    //    $form.css({
-    //
-    //        "top":"33%"
-    //    });
-    //});
+    var $formtext=$("#form .text");
+    var $form=$("#form");
+    $formtext.focus(function(){
+        $form.removeClass("bottom")
+            .addClass("top3205");
+    });
+    $formtext.blur(function(){
+        $form.removeClass("top3205")
+            .addClass("bottom");
+    });
 }
 if (browser.versions.android) {
     console.log('安卓');

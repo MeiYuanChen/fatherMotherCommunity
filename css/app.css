@@ -45,6 +45,7 @@ p{text-overflow: ellipsis;word-break:break-all;}
 .right{right:0}
 .left{left:0}
 .top{top:0}
+.top3205{top:32.5%}
 .oh{overflow:hidden}
 .fl{float:left}
 .fr{float: right}
@@ -114,7 +115,7 @@ p{text-overflow: ellipsis;word-break:break-all;}
 .bg2{background:url("../img/bg2.jpg") no-repeat;background-size:100% 100%;width:100%;height:auto;}
 .contenthtml .con img{width:100%;margin:5% 0 0 0;}
 .contenthtml .settime{width:76%}
-.contenthtml{padding-bottom:2rem}
+.contenthtml{}
 .back{background:url("../img/back.jpg") no-repeat;background-size:100% 100%;width:1rem;height:.8rem;}
 .timebg{background:url("../img/timebg.png") repeat-x;background-size:cover;height:.7rem;width:10%}
 .oppositionTitle,.squareTitle{height:2.5rem}
