@@ -132,7 +132,7 @@ p{text-overflow: ellipsis;word-break:break-all;}
 .comment{padding:5% 0;}
 .comment .header{width:2rem;height:2rem;}
 .comment .con{width:62%;padding:2% 8% 3% 8%;margin:0 11%;margin-top:-3rem;}
-.post{z-index:5;}
+.post{z-index:9999;}
 #form .button .img{width:100%;height:100%}
 #form .button{outline:none;width:2.2rem;height:1.5rem;margin-top:.25rem;border:none;}
 .post .text{padding:0 .1rem;height:1.7rem;resize:none;margin:1% 5%;border:1px solid #f8f8f8;width:8.7rem;outline:none}
@@ -146,7 +146,7 @@ textarea::-webkit-input-placeholder:after{
     content:"\A 观点";/*  \A 表示换行  */
 }
 .togglebtn{width:3rem;height:1.8rem;margin-top:.1rem;}
-.togglebtn img{width:100%;height:100%}
+.togglebtn img,.togglebtn div{width:100%;height:100%}
 @-webkit-keyframes toopacity
 {
     from {opacity:100 }
@@ -155,9 +155,9 @@ textarea::-webkit-input-placeholder:after{
 .textml{margin-left:0 !important;}
 .togglebtnml{margin-left:4.8% !important;}
 .morehover{-webkit-animation: toopacity .4s;}
-.tipsform{bottom:2.5rem}
+.tipsform{bottom:2.5rem;z-index:99}
 
-.tips .purplebg{width: 94.5%;  line-height: 220%;  height: 1.5rem;  position: absolute;  top: 0;  left: 2.8%;}
+.tips .purplebg{width: 95%;  line-height: 220%;  height: 1.5rem;  position: absolute;  top: 0;  left: 2.8%;}
 .tips .fl:first-child{background:url("../img/tipsbgL.png") no-repeat;height:1.5rem;width:3%;background-size:100% 100%;}
 .tips .fr{background:url("../img/tipsbgR.png") no-repeat;height:1.5rem;width:3%;background-size:100% 100%;}
 .vote{height:1.5rem;width:2rem;}

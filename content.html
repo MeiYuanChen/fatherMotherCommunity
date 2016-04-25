@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
     <title>爸妈生活链-内容</title>
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body class="contenthtml mw700">
 <div class="bg2 pb3 pt3">
     <div class="title oh cb w90 pr5 pl5 mt3 mb3">
-        <a class="back dib fl"></a>
+        <a class="back dib fl" href="javascript:window.history.go(-1)"></a>
         <h1 class="fz08 yellow ml3 fl w80 oh lh120">该不该看伴侣手机?该不该看伴侣手机?</h1>
     </div>
     <div class="column w90 pl5 pr5">
@@ -200,15 +200,18 @@
 <!--评论结束-->
 <!--发表评论开始-->
 <div class="pf bottom left w whitebgc post cb oh mw700 squarepost" id="form">
-    <div id="togglebtn" class="togglebtn ml2 fl pr" onclick="togglebtnSO('#togglebtn');">
+    <div id="togglebtn" class="togglebtn ml2 fl" onclick="togglebtnSO('#togglebtn');">
+        <div class="pr">
         <img  class="img pa top left"  src="img/togglebtn2.jpg"/>
         <img class="img pa top left" src="img/togglebtn1.jpg"/>
+        </div>
     </div>
+<form name="contentform" onsubmit="verification();return false;">
     <div class="fl">
-        <textarea placeholder="正方" class="text fz06 lh130" onfocus="textfocus();" onblur="textblur();"></textarea>
+        <textarea  placeholder="正方" class="text fz06 lh130"></textarea>
     </div>
     <div class="fr mr5">
-        <a class="button tdn dib pr oh" id="hoverbtn" onclick="verification();">
+        <button type="submit" class="button tdn dib pr oh" id="hoverbtn">
             <div class="pa left w h oh top oppositionpostbtn greenbg2" onclick="hoverbtnfun('#hoverbtn .oppositionpostbtn');">
                 <img class="img pa left top" src="img/oppositionpostbtn2.jpg">
                 <img class="img pa left top" src="img/oppositionpostbtn1.jpg">
@@ -218,8 +221,9 @@
                 <img class="img pa left top" src="img/squarepostbtn1.jpg">
             </div>
 
-        </a>
+        </button>
     </div>
+</form>
 </div>
 <div class="w80 ml10 mr10 cb oh pf tips hide tipsform" id="error">
     <div class="pr h105rem">
@@ -236,6 +240,7 @@
     </div>
 </div>
 <!--发表评论结束-->
+
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
 <script src="js/app.js"></script>
