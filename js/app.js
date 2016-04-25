@@ -107,11 +107,14 @@ function progressBarbtnChange(btn){
     }
 }
 function hoverbtnfun(btn){ //正方发表按钮
+
     var $btnlast=$(btn).find(".img:last");
         $btnlast.attr("style","display:none");
     setTimeout(function(){
         $btnlast.attr("style","display:block");
+        $("textarea").val("");
     },100);
+
 
 }
 function verification(){//验证文本框是否为空
