@@ -140,12 +140,7 @@ function verification(){//验证文本框是否为空
 
 
 }
-//function textfocus(){//优化体验
-//        $("body").css("overflow","hidden");
-//}
-//function textblur(){//优化体验
-//    $("body").css("overflow","auto");
-//}
+
 function removeOnclick(removeclick1,removeclick2){
     $(removeclick1).attr("onclick","");
     $(removeclick2).attr("onclick","");
@@ -252,24 +247,28 @@ function shownum(Sadd,Oadd){
 
 }
 function togglebtnSO(btn){
-    var $hoverbtn=$("#hoverbtn").find("div:last"),$text=$("textarea"),$form=$("#form"),$btn=$(btn),$btnimg=$(btn).find("img:last");
+    var $hoverbtn=$("#hoverbtn").find("div:last"),$text=$("#textarea"),$form=$("#form"),$btn=$(btn),$btnimg=$(btn).find("img:last");
 
     if($btnimg.attr("style")=="display:none"){
         $btnimg.attr("style","display:block");
-        $btn.removeClass("togglebtnml");
+
+
         $form.removeClass("oppositionpost")
             .addClass("squarepost");
-        $text.attr("placeholder", "正方")
-            .removeClass("textml");
+        $text.find(".Stext").css("display","block");
+        //$text.attr("placeholder", "正方")
+        //    .removeClass("textml");
         $hoverbtn.attr('style','display:block');
 
     }else{
+
         $btnimg.attr("style","display:none");
-            $btn.addClass("togglebtnml");;
+        $text.find(".Stext").css("display","none");
         $form.removeClass("squarepost")
             .addClass("oppositionpost");
-        $text.attr("placeholder", "反方")
-                .addClass("textml");
+
+        //$text.attr("placeholder", "反方")
+        //        .addClass("textml");
         $hoverbtn.attr('style','display:none');
     }
 }
@@ -324,16 +323,16 @@ var browser = {
 if (browser.versions.iPhone || browser.versions.iPad || browser.versions.ios) {
     $(".tips .purplebg").css("width","94.5%");
     console.log('ios');
-    var $formtext=$("#form .text");
-    var $form=$("#form");
-    $formtext.focus(function(){
-        $form.removeClass("bottom")
-            .addClass("top3205");
-    });
-    $formtext.blur(function(){
-        $form.removeClass("top3205")
-            .addClass("bottom");
-    });
+    //var $formtext=$("#form .text");
+    //var $form=$("#form");
+    //$formtext.focus(function(){
+    //    $form.removeClass("bottom")
+    //        .addClass("top3205");
+    //});
+    //$formtext.blur(function(){
+    //    $form.removeClass("top3205")
+    //        .addClass("bottom");
+    //});
 }
 if (browser.versions.android) {
     console.log('安卓');

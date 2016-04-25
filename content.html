@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body class="contenthtml mw700">
-
+<div style="height:93vh;overflow:hidden;width:100%;" class="main pa top left">
+    <div style="overflow-y: scroll;height:100%;background:#fff">
         <div class="bg2 pb3 pt3">
             <div class="title oh cb w90 pr5 pl5 mt3 mb3">
                 <a class="back dib fl" href="javascript:window.history.go(-1)"></a>
@@ -200,10 +201,12 @@
             </div>
         </ul>
         <!--评论结束-->
+    </div>
 
+</div>
 
 <!--发表评论开始-->
-<div class="pf whitebgc post cb oh mw700 squarepost w left bottom" id="form">
+<div class="pa whitebgc post cb oh mw700 squarepost w left bottom" id="form">
     <div id="togglebtn" class="togglebtn ml2 fl" onclick="togglebtnSO('#togglebtn');">
         <div class="pr">
         <img  class="img pa top left"  src="img/togglebtn2.jpg"/>
@@ -211,8 +214,10 @@
         </div>
     </div>
 <form name="contentform" onsubmit="verification();return false;">
-    <div class="fl">
-        <textarea  placeholder="正方" class="text fz06 lh130"></textarea>
+    <div class="fl pr" id="textarea">
+        <textarea  placeholder="反方" class="pa top left text Otext fz06 lh130"></textarea>
+        <textarea  placeholder="正方" class="pa top left text Stext fz06 lh130"></textarea>
+
     </div>
     <div class="fr mr5">
         <button type="submit" class="button tdn dib pr oh" id="hoverbtn">

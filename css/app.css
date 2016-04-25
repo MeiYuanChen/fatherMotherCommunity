@@ -175,7 +175,7 @@ textarea::-webkit-input-placeholder:after{
 .Ovoted2{background:url("../img/Ovoted2.jpg") no-repeat;background-size:100% 100%;}
 .votediv .fl .add,.votediv .fl .less{color:#855cdd}
 .votediv .fr .add,.votediv .fr .less{color:#28a0a3}
-.votediv .add,.votediv .less{width:2rem;z-index:-1;top:1rem;opacity:0}
+.votediv .add,.votediv .less{width:2rem;z-index:2;top:1rem;opacity:0}
 
 .backtrack{background:url("../img/backtrack.jpg") no-repeat;background-size:100% 100%;width:25%;height:.7rem;margin-left:37.5%}
 .progressBarBorderOut{border:1px solid #000;height:.3rem;width:80%;z-index:0;left:10%;top:45%;}
@@ -186,3 +186,4 @@ textarea::-webkit-input-placeholder:after{
 
 .vsImg{width:1rem;height:.8rem;top:.6rem;left:47%;}
 .info{width:72%;left:14%;top:.8rem;}
+#textarea{height:2rem;width:57%; }
