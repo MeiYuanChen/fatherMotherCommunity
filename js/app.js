@@ -324,6 +324,13 @@ if (browser.versions.iPhone || browser.versions.iPad || browser.versions.ios) {
     //    $form.removeClass("top3205")
     //        .addClass("bottom");
     //});
+    var $Otext=$("#textarea .Otext");
+    var $Stext=$("#textarea .Stext");
+    var $main=$("#main");
+    $main.on("click",function(){
+        $Otext.blur();
+        $Stext.blur();
+    });
 }
 if (browser.versions.android) {
     console.log('安卓');
