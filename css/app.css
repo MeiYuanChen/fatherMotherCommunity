@@ -157,7 +157,7 @@ textarea::-webkit-input-placeholder:after{
 .textml{margin-left:0 !important;}
 .togglebtnml{margin-left:4.8% !important;}
 .morehover{-webkit-animation: toopacity .4s;}
-.tipsform{bottom:2.5rem;z-index:99}
+.tipsform{bottom:3.6rem;z-index:99}
 
 .tips .purplebg{width: 95%;  line-height: 220%;  height: 1.5rem;  position: absolute;  top: 0;  left: 2.8%;}
 .tips .fl:first-child{background:url("../img/tipsbgL.png") no-repeat;height:1.5rem;width:3%;background-size:100% 100%;}
