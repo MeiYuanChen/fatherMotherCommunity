@@ -213,24 +213,24 @@
         <img class="img pa top left" src="img/togglebtn1.jpg"/>
         </div>
     </div>
-<form name="contentform" onsubmit="verification();return false;">
+<form name="contentform">
     <div class="fl pr" id="textarea">
         <textarea  placeholder="反方" class="pa top left text Otext fz06 lh130"></textarea>
         <textarea  placeholder="正方" class="pa top left text Stext fz06 lh130"></textarea>
 
     </div>
     <div class="fr mr5">
-        <button type="submit" class="button tdn dib pr oh" id="hoverbtn">
-            <div class="pa left w h oh top oppositionpostbtn greenbg2" onclick="hoverbtnfun('#hoverbtn .oppositionpostbtn');">
+        <div class="button tdn dib pr oh" id="hoverbtn">
+            <div class="pa left w h oh top oppositionpostbtn greenbg2" onclick="verification('#textarea .Otext');hoverbtnfun('#hoverbtn .oppositionpostbtn');">
                 <img class="img pa left top" src="img/oppositionpostbtn2.jpg">
                 <img class="img pa left top" src="img/oppositionpostbtn1.jpg">
             </div>
-            <div class="pa left w h oh top squarepostbtn purplebg" onclick="hoverbtnfun('#hoverbtn .squarepostbtn');">
+            <div class="pa left w h oh top squarepostbtn purplebg" onclick="verification('#textarea .Stext');hoverbtnfun('#hoverbtn .squarepostbtn');">
                 <img class="img pa left top" src="img/squarepostbtn2.jpg">
                 <img class="img pa left top" src="img/squarepostbtn1.jpg">
             </div>
 
-        </button>
+        </div>
     </div>
 </form>
 </div>

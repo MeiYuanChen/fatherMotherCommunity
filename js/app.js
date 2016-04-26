@@ -117,26 +117,22 @@ function hoverbtnfun(btn){ //正方发表按钮
 
 
 }
-function verification(){//验证文本框是否为空
-    var reg1=/\s/,//空白行
-        $text=$("textarea").val();
-
-    if(reg1.test($text)||$text==""){
-
+function verification(text){//验证文本框是否为空
+    var reg1=/\s/;//空白行
+    var $text=$(text).val();
+    if(reg1.test($text)|| $text==""){
         CMY.show("#error","slow");
-        setTimeout(function(){
+            setTimeout(function(){
 
-            CMY.hide("#error","slow");
-        },3000);
+                CMY.hide("#error","slow");
+            },3000);
     }else{
-
         CMY.show("#success","slow");
-        setTimeout(function(){
+            setTimeout(function(){
 
-            CMY.hide("#success","slow");
-        },3000);
+                CMY.hide("#success","slow");
+            },3000);
     }
-    $("textarea").blur();
 
 
 }
@@ -256,8 +252,6 @@ function togglebtnSO(btn){
         $form.removeClass("oppositionpost")
             .addClass("squarepost");
         $text.find(".Stext").css("display","block");
-        //$text.attr("placeholder", "正方")
-        //    .removeClass("textml");
         $hoverbtn.attr('style','display:block');
 
     }else{
@@ -266,9 +260,6 @@ function togglebtnSO(btn){
         $text.find(".Stext").css("display","none");
         $form.removeClass("squarepost")
             .addClass("oppositionpost");
-
-        //$text.attr("placeholder", "反方")
-        //        .addClass("textml");
         $hoverbtn.attr('style','display:none');
     }
 }
