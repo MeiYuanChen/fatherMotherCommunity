@@ -67,7 +67,17 @@ var comment_api="/api/parentCommunity/getReplyPage?topicId="+iid+"&pageIndex="+s
 var comment_url=Heng.options.base_url + comment_api + "&Authorization=" + Heng.getToken();
 app.controller('topicInfo',function($scope,$http){
     $http.get(topicInfo_url).success(function(response){$scope.result=response.Result;});
-    $http.get(comment_url).success(function(response){$scope.list=response.List;$scope.count=response.Count;});
+    $http.get(comment_url).success(function(response){
+        $scope.list=response.List;
+        $scope.count=response.Count;
+        //加载更多
+        if($scope.count>=20){
+            angular.element("#morebtn").show();
+        }else{
+            angular.element("#morebtn").hide();
+        }
+    });
+
     //跑票
     $scope.updateRunTicket=function(RId){
         var updateRunTicket_api="/api/parentCommunity/updateRunTicket?topicId="+RId;
@@ -130,13 +140,15 @@ app.controller('topicInfo',function($scope,$http){
             headers:{ 'Content-Type': 'application/json'}
         }).success(function(){
             console.log("发布评论成功");
-            $http.get(comment_url).success(function(response){$scope.list=response.List;});
+            $http.get(comment_url).success(function(response){$scope.list=response.List;$scope.count=response.Count;});
+
         }).error(function(res){
             alert('更新失败'+res);
         });
     };
 
     //加载更多
+
     $scope.readMore=function(){
 
         endcommentpage=endcommentpage+20;
