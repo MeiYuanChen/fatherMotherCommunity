@@ -26,21 +26,6 @@
     doc.addEventListener('DOMContentLoaded', recalc, false);
 })
 (document, window);
-
-//angular start
-var app=angular.module("myApp",[]);
-var iid=Heng.getIid();
-//获取话题信息
-var all_api="/api/parentCommunity/getViewTopicPage?pageIndex=1&pageSize=100";
-var all_url=Heng.options.base_url + all_api + "&Authorization=" + Heng.getToken();
-app.controller('allTopic',function($scope,$http){
-    $http.get(all_url).success(function(response){$scope.list=response.List;});
-});
-//获取token
-app.controller('gettingtoken',function($scope){
-    $scope.lh="token=" + Heng.getToken();
-});
-//angular end
 var CMY={};
 CMY.hide=function(e,time){
     return $(e).fadeOut(time);
@@ -55,6 +40,7 @@ $(function(){
     progressBar();
     shownum();
     backtrack();
+    hidePoll();
 });
 var $sum;
 
@@ -122,40 +108,36 @@ function progressBarbtnChange(btn){
     }
 }
 function hoverbtnfun(btn){ //正方发表按钮
+
     var $btnlast=$(btn).find(".img:last");
         $btnlast.attr("style","display:none");
     setTimeout(function(){
         $btnlast.attr("style","display:block");
+        $("textarea").val("");
     },100);
 
+
 }
-function verification(){//验证文本框是否为空
-    var reg1=/\s/,//空白行
-        $text=$("textarea").val();
-    if(reg1.test($text)||$text==""){
-
+function verification(text){//验证文本框是否为空
+    var reg1=/\s/;//空白行
+    var $text=$(text).val();
+    if(reg1.test($text)|| $text==""){
         CMY.show("#error","slow");
-        setTimeout(function(){
+            setTimeout(function(){
 
-            CMY.hide("#error","slow");
-        },3000);
+                CMY.hide("#error","slow");
+            },3000);
     }else{
-
         CMY.show("#success","slow");
-        setTimeout(function(){
+            setTimeout(function(){
 
-            CMY.hide("#success","slow");
-        },3000);
+                CMY.hide("#success","slow");
+            },3000);
     }
 
 
 }
-function textfocus(){//优化体验
-        $("body").css("overflow","hidden");
-}
-function textblur(){//优化体验
-    $("body").css("overflow","auto");
-}
+
 function removeOnclick(removeclick1,removeclick2){
     $(removeclick1).attr("onclick","");
     $(removeclick2).attr("onclick","");
@@ -262,24 +244,23 @@ function shownum(Sadd,Oadd){
 
 }
 function togglebtnSO(btn){
-    var $hoverbtn=$("#hoverbtn").find("div:last"),$text=$("textarea"),$form=$("#form"),$btn=$(btn),$btnimg=$(btn).find("img:last");
+    var $hoverbtn=$("#hoverbtn").find("div:last"),$text=$("#textarea"),$form=$("#form"),$btn=$(btn),$btnimg=$(btn).find("img:last");
 
     if($btnimg.attr("style")=="display:none"){
         $btnimg.attr("style","display:block");
-        $btn.removeClass("togglebtnml");
+
+
         $form.removeClass("oppositionpost")
             .addClass("squarepost");
-        $text.attr("placeholder", "正方")
-            .removeClass("textml");
+        $text.find(".Stext").css("display","block");
         $hoverbtn.attr('style','display:block');
 
     }else{
+
         $btnimg.attr("style","display:none");
-            $btn.addClass("togglebtnml");;
+        $text.find(".Stext").css("display","none");
         $form.removeClass("squarepost")
             .addClass("oppositionpost");
-        $text.attr("placeholder", "反方")
-                .addClass("textml");
         $hoverbtn.attr('style','display:none');
     }
 }
@@ -320,3 +301,49 @@ function progressBarbtnPosition(leftWidth){
     $btn.css('left',leftWidth-17+unit);
 }
 
+var browser = {
+    versions: function () {
+        var u = navigator.userAgent, app = navigator.appVersion;
+        return { //移动终端浏览器版本信息
+            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
+            iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+            iPad: u.indexOf('iPad') > -1, //是否iPad
+        };
+    }(),
+}
+if (browser.versions.iPhone || browser.versions.iPad || browser.versions.ios) {
+    $(".tips .purplebg").css("width","94.5%");
+    console.log('ios');
+    //var $formtext=$("#form .text");
+    //var $form=$("#form");
+    //$formtext.focus(function(){
+    //    $form.removeClass("bottom")
+    //        .addClass("top3205");
+    //});
+    //$formtext.blur(function(){
+    //    $form.removeClass("top3205")
+    //        .addClass("bottom");
+    //});
+    var $Otext=$("#textarea .Otext");
+    var $Stext=$("#textarea .Stext");
+    var $main=$("#main");
+    $main.on("click",function(){
+        $Otext.blur();
+        $Stext.blur();
+    });
+}
+if (browser.versions.android) {
+    console.log('安卓');
+}
+//如果活动时间已结束,停止投票
+function hidePoll(){
+    console.log($("#time .w76").text());
+    if($("#time .w76").text()=="已结束"){
+
+        $('#Svotediv').hide();
+        $('#SvotedivEnd').show();
+        $('#Ovotediv').hide();
+        $('#OvotedivEnd').show();
+    }
+}

@@ -7,27 +7,29 @@
     <title>爸妈生活链-内容</title>
     <link rel="stylesheet" href="css/app.css">
 </head>
-<body class="contenthtml mw700" ng-app="myApp" ng-controller="topicInfo">
-<div style="height:93vh;overflow:hidden;width:100%" id="main" class=" mw700 main pa top left">
+<body class="contenthtml mw700">
+<div style="height:93vh;overflow:hidden;" id="main" class="mw700 main pa top left">
     <div style="overflow-y: scroll;height:100%;background:#fff">
-        <div class="bg2 pb3 pt3" >
+        <div class="bg2 pb3 pt3">
             <div class="title oh cb w90 pr5 pl5 mt3 mb3">
                 <a class="back dib fl" href="javascript:window.history.go(-1)"></a>
-                <h1 class="fz08 yellow ml3 fl w80 oh lh120" ng-bind="result.Title"></h1>
+                <h1 class="fz08 yellow ml3 fl w90 oh lh120">该不该看伴侣手机?该不该看伴侣手机?</h1>
             </div>
             <div class="column w90 pl5 pr5">
                 <div class="header w"></div>
                 <div class="content w90 pl5 pr5 pb3">
-                    <div class="con fz06 lh200 mb5" ng-bind-html="result.Content|trustHtml"></div>
+                    <div class="con fz06 lh200 mb5">
+                        <img src="img/contentimg.jpg">
+                        该不该看伴侣手机?该不该看伴侣手机?该不该看伴侣手机?该不该看伴侣手机?该不该看伴侣手机?该不该看伴侣手机?该不该看伴侣手机?该不该看伴侣手机?该不该看伴侣手机?该不该看伴侣手机?该不该看伴侣手机?该不该看伴侣手机?该不该看伴侣手机?该不该看伴侣手机?
+                    </div>
                 </div>
                 <div class="borderbottom w"></div>
                 <!--倒计时-->
                 <div class="cb oh mt3 mb3 fz06 tc time" id="time">
                     <div class="fl timebg mr2"></div>
-                    <div class="fl yellow fz05 lh120 settime tc w76" id="{{result.Id}}"  endTime="{{result.EndTime}}"></div>
+                    <div class="fl yellow fz05 lh120 settime tc" id="1"  endTime="2016-05-12 14:58:07"></div>
                     <div class="fr timebg ml2"></div>
                 </div>
-
             </div>
         </div>
         <div style="height:1rem;"></div>
@@ -40,7 +42,7 @@
                 </div>
             </div>
             <!--正方按钮开始-->
-            <div class="fl" id="Svotediv" ng-click="updatePoll(result.Id,'1');" onclick="CMY.show('#backtrack',1800);hoverbtnfun('#Svote2');toggleSO2('#Svote','#Svotediv .add');removeOnclick('#Svotediv','#Ovotediv');">
+            <div class="fl" id="Svotediv" onclick="CMY.show('#backtrack',1800);hoverbtnfun('#Svote2');toggleSO2('#Svote','#Svotediv .add');removeOnclick('#Svotediv','#Ovotediv');">
                 <div class="add pa fz06 tc">+1</div>
                 <div class="less pa fz06 tc">-1</div>
                 <div class="vote oh pr" id="Svote">
@@ -62,7 +64,7 @@
                 </div>
             </div>
             <!--反方按钮开始-->
-            <div class="fr" id="Ovotediv" ng-click="updatePoll(result.Id,'2');" onclick="CMY.show('#backtrack',1800);hoverbtnfun('#Ovote2');toggleSO2('#Ovote','#Ovotediv .add');removeOnclick('#Svotediv','#Ovotediv');">
+            <div class="fr" id="Ovotediv" onclick="CMY.show('#backtrack',1800);hoverbtnfun('#Ovote2');toggleSO2('#Ovote','#Ovotediv .add');removeOnclick('#Svotediv','#Ovotediv');">
                 <div class="less pa fz06 tc">-1</div>
                 <div class="add pa fz06 tc">+1</div>
 
@@ -81,13 +83,13 @@
             <!--反方按钮结束-->
             <!--我要跑票按钮-->
 
-            <div class="backtrack pa bottom hide" id="backtrack" ng-click="updateRunTicket(result.Id);"></div>
+            <div class="backtrack pa bottom hide" id="backtrack"></div>
             <!--信息显示开始-->
             <!--vs图标-->
             <img class="vsImg pa" src="img/vs.jpg">
             <div class="pa info">
-                <div class="purple fz06 fl">正方&nbsp;<span data-Soddnum="{{result.AffirmativeCount}}" ng-bind="result.AffirmativeCount"></span>票</div>
-                <div class="green fz06 fr">反方&nbsp;<span data-Ooddnum="{{result.NegativeCount}}" ng-bind="result.NegativeCount"></span>票</div>
+                <div class="purple fz06 fl">正方&nbsp;<span data-Soddnum="512"></span>票</div>
+                <div class="green fz06 fr">反方&nbsp;<span data-Ooddnum="512"></span>票</div>
             </div>
 
             <!--信息显示结束-->
@@ -108,12 +110,12 @@
             <div class="progressBarBorderOut oh pa" id="progressBarBorderOut" >
                 <!--oddnum单数 sum总数-->
                 <!--正方投票人数(紫色进度条表示)-->
-                <div class="pr purplebg h SprogressBar fl" data-Soddnum="{{result.AffirmativeCount}}" id="SprogressBar">
+                <div class="pr purplebg h SprogressBar fl" data-Soddnum="512" id="SprogressBar">
                     <div class="progressBarBorderIn oh w pa top left"></div>
                     <div class="progressBarBorderIn oh w pa bottom left"></div>
                 </div>
                 <!--反方投票人数(绿色进度条表示)-->
-                <div class="pr greenbg2 h OprogressBar fl" data-Ooddnum="{{result.NegativeCount}}" id="OprogressBar">
+                <div class="pr greenbg2 h OprogressBar fl" data-Ooddnum="512" id="OprogressBar">
                     <div class="progressBarBorderIn oh w pa top left"></div>
                     <div class="progressBarBorderIn oh w pa bottom left"></div>
                 </div>
@@ -126,34 +128,85 @@
 
         <!--正反方题目-->
         <div class="w90 ml5 mr5 squareTitle oh pr">
-            <div class="fz06 white lh120 pa oh" ng-bind="result.AffirmativeTitle"></div>
+            <div class="fz06 white lh120 pa oh">该看伴侣的手机该看伴侣的手机该看伴侣的手机该看伴侣的手机该看伴侣的手机</div>
         </div>
         <div class="w90 ml5 mr5 oppositionTitle oh pr">
-            <div class="fz06 white lh120 pa oh" ng-bind="result.NegativeTitle"></div>
+            <div class="fz06 white lh120 pa oh">该看伴侣的手侣的手机该看伴侣的手机该看伴侣的手机</div>
         </div>
         <!--评论开始-->
         <ul class="oh cb w90 ml5 mr5 mt5 pb10">
-            <!--评论开始-->
-            <li class="oh cb comment" ng-repeat="x in list" ng-class="x.ReplyKind==1 ? 'squareComment' : 'oppositionComment'">
+            <!--正方评论开始-->
+            <li class="oh cb squareComment comment">
                 <!--头像-->
-                <img class="br100 header" ng-src="{{x.UserLogo}}"/>
+                <img class="br100 header" src="img/header2.jpg"/>
                 <!--内容-->
                 <div class="con oh">
-                    <h3 class="fz05 black8" ng-bind="x.AddTime | date:'yyyy-MM-dd hh:mm'"></h3>
-                    <h2 class="fz06 fb mt3">
-                        <span ng-bind="x.NickName"></span>
-                        <span ng-if="x.ReplyKind==1">(正方)</span>
-                        <span ng-if="x.ReplyKind==2">(反方)</span>
-                    </h2>
-                    <p class="black lh120 fz065 mt3" ng-bind="x.Content"></p>
-
+                    <h3 class="fz05 black8">2016-03-36 15:35</h3>
+                    <h2 class="fz06 fb mt3">微信用户名1(反方)</h2>
+                    <p class="black lh120 fz065 mt3">
+                        我认为不应该看，因为这是对自己伴侣的一个不信任，如果信任他你就该给他有自己的隐私空间，真金不怕火炼。
+                    </p>
                 </div>
             </li>
-            <!--评论结束-->
-
-
+            <!--正方评论结束-->
+            <!--反方评论开始-->
+            <li class="oh cb oppositionComment comment">
+                <!--头像-->
+                <img class="br100 header fr pr" style="z-index:2" src="img/header1.jpg"/>
+                <!--内容-->
+                <div class="con oh fr">
+                    <h3 class="fz05 black8">2016-03-36 15:35</h3>
+                    <h2 class="fz06 fb mt3">微信用户名2(正方)</h2>
+                    <p class="black lh120 fz065 mt3">
+                        应该看呀，你不看的话他跟别人跑了！
+                    </p>
+                </div>
+            </li>
+            <!--反方评论结束-->
+            <!--反方评论开始-->
+            <li class="oh cb oppositionComment comment">
+                <!--头像-->
+                <img class="br100 header fr pr" style="z-index:2" src="img/header1.jpg"/>
+                <!--内容-->
+                <div class="con oh fr">
+                    <h3 class="fz05 black8">2016-03-36 15:35</h3>
+                    <h2 class="fz06 fb mt3">微信用户名2(正方)</h2>
+                    <p class="black lh120 fz065 mt3">
+                        爱一个人就应该知道他的一切的一切，这是对对方的信任。
+                    </p>
+                </div>
+            </li>
+            <!--反方评论结束-->
+            <!--正方评论开始-->
+            <li class="oh cb squareComment comment">
+                <!--头像-->
+                <img class="br100 header" src="img/header2.jpg"/>
+                <!--内容-->
+                <div class="con oh">
+                    <h3 class="fz05 black8">2016-03-36 15:35</h3>
+                    <h2 class="fz06 fb mt3">微信用户名1(反方)</h2>
+                    <p class="black lh120 fz065 mt3">
+                        我认为不应该看，因为这是对自己伴侣的一个不信任，如果信任他你就该给他有自己的隐私空间，真金不怕火炼。
+                    </p>
+                </div>
+            </li>
+            <!--正方评论结束-->
+            <!--反方评论开始-->
+            <li class="oh cb oppositionComment comment">
+                <!--头像-->
+                <img class="br100 header fr pr" style="z-index:2" src="img/header1.jpg"/>
+                <!--内容-->
+                <div class="con oh fr">
+                    <h3 class="fz05 black8">2016-03-36 15:35</h3>
+                    <h2 class="fz06 fb mt3">微信用户名2(正方)</h2>
+                    <p class="black lh120 fz065 mt3">
+                        应该看呀，你不看的话他跟别人跑了！
+                    </p>
+                </div>
+            </li>
+            <!--反方评论结束-->
             <!--加载更多-->
-            <div class="w90 ml5 mr5 more cb oh tips pr" onclick="more()" ng-click="readMore();" ng-if="count>=3" id="morebtn">
+            <div class="w90 ml5 mr5 more cb oh tips pr" onclick="more()" id="morebtn">
                 <div class="fl"></div>
                 <div class="purplebg tc fl white fz065 oh">加载更多</div>
                 <div class="fr"></div>
@@ -165,7 +218,7 @@
 </div>
 
 <!--发表评论开始-->
-<div class="pa whitebgc post cb oh mw700 squarepost w left bottom" id="form" ng-controller="weixin">
+<div class="pa whitebgc post cb oh mw700 squarepost w left bottom" id="form">
     <div id="togglebtn" class="togglebtn ml2 fl" onclick="togglebtnSO('#togglebtn');">
         <div class="pr">
         <img  class="img pa top left"  src="img/togglebtn2.jpg"/>
@@ -174,17 +227,17 @@
     </div>
 <form name="contentform">
     <div class="fl pr" id="textarea">
-        <textarea  placeholder="反方" class="pa top left text Otext fz06 lh130" ng-model="otextarea"></textarea>
-        <textarea  placeholder="正方" class="pa top left text Stext fz06 lh130" ng-model="stextarea"></textarea>
+        <textarea  placeholder="反方" class="pa top left text Otext fz06 lh130"></textarea>
+        <textarea  placeholder="正方" class="pa top left text Stext fz06 lh130"></textarea>
 
     </div>
     <div class="fr mr5">
         <div class="button tdn dib pr oh" id="hoverbtn">
-            <div class="pa left w h oh top oppositionpostbtn greenbg2" ng-click="sub(result.Id,otextarea,weixin.NickName,weixin.HeadImgUrl,2)" onclick="verification('#textarea .Otext');hoverbtnfun('#hoverbtn .oppositionpostbtn');">
+            <div class="pa left w h oh top oppositionpostbtn greenbg2" onclick="verification('#textarea .Otext');hoverbtnfun('#hoverbtn .oppositionpostbtn');">
                 <img class="img pa left top" src="img/oppositionpostbtn2.jpg">
                 <img class="img pa left top" src="img/oppositionpostbtn1.jpg">
             </div>
-            <div class="pa left w h oh top squarepostbtn purplebg" ng-click="sub(result.Id,stextarea,weixin.NickName,weixin.HeadImgUrl,1)" onclick="verification('#textarea .Stext');hoverbtnfun('#hoverbtn .squarepostbtn');">
+            <div class="pa left w h oh top squarepostbtn purplebg" onclick="verification('#textarea .Stext');hoverbtnfun('#hoverbtn .squarepostbtn');">
                 <img class="img pa left top" src="img/squarepostbtn2.jpg">
                 <img class="img pa left top" src="img/squarepostbtn1.jpg">
             </div>
@@ -210,9 +263,7 @@
 <!--发表评论结束-->
 
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-
 <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
-<script src="js/heng.js"></script>
-<script src="js/app.js"></script>
+<script src="js/Japp.js"></script>
 </body>
 </html>

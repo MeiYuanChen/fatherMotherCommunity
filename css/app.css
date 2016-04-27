@@ -30,6 +30,7 @@ p{text-overflow: ellipsis;word-break:break-all;}
 .mw700{max-width:768px;}
 .h{height:100%}
 .w60{width:60%}
+.w76{width:76%}
 .w80{width:80%}
 .w90{width:90%}
 
@@ -127,7 +128,8 @@ p{text-overflow: ellipsis;word-break:break-all;}
 .squareComment .header{border:5px solid #855cdd;}
 .squareComment .con{background:#e7def8}
 .squareComment h2{color:#855cdd}
-.oppositionComment .header{border:5px solid #28a0a3;}
+.oppositionComment .con,.oppositionComment .header{float:right}
+.oppositionComment .header{border:5px solid #28a0a3;z-index:2;position:relative}
 .oppositionComment .con{background:#d4eced}
 .oppositionComment h2{color:#28a0a3;text-align:right}
 .oppositionComment h3{text-align:right}
