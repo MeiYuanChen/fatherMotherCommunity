@@ -7,12 +7,12 @@
     <title>爸妈生活链-内容</title>
     <link rel="stylesheet" href="css/app.css">
 </head>
-<body class="contenthtml mw700" ng-app="myApp" ng-controller="topicInfo">
-<div style="height:93vh;overflow:hidden;width:100%" id="main" class=" mw700 main pa top left">
-    <div style="overflow-y: scroll;height:100%;background:#fff">
-        <div class="bg2 pb3 pt3" >
+<body class="contenthtml mw700 main pa top left" ng-app="myApp" ng-controller="topicInfo">
+<div id="main" class=" mw700 main pa top left">
+    <div class="mainwrap">
+        <div class="bg2 pb3 pt3 pr" >
             <div class="title oh cb w90 pr5 pl5 mt3 mb3">
-                <a class="back dib fl" href="javascript:window.history.go(-1)"></a>
+                <a class="back dib fl" href="javascript:window.history.go(-1)" ng-click="back();"></a>
                 <h1 class="fz08 yellow ml3 fl w80 oh lh120" ng-bind="result.Title"></h1>
             </div>
             <div class="column w90 pl5 pr5">
@@ -210,7 +210,7 @@
 <!--发表评论结束-->
 
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-
+<script src="js/jweixin.js"></script>
 <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
 <script src="js/heng.js"></script>
 <script src="js/app.js"></script>

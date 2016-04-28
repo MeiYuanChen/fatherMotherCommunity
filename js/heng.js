@@ -5,7 +5,7 @@
 var Heng = {
     options: {
         // 接口域名基地址
-        base_url: "http://192.168.15.6/bama"
+        base_url: "http://hd.jxt189.com/heng_bama"
     },
     // 提取#后面的token
     getParam: function(strParame) {

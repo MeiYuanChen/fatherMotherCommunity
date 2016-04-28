@@ -46,7 +46,7 @@ function WXConfig(appcode) {
         },
         function (json) {
             wx.config({
-                debug:true,
+                debug:false,
                 appId: json.appId,
                 timestamp: json.timestamp,
                 nonceStr: json.nonceStr,
@@ -171,23 +171,12 @@ function ScanQRCode() {
 function HideMenuItems() {
     wx.hideMenuItems({
         menuList: [
-            //'menuItem:share:appMessage',//发送给朋友
-            //'menuItem:share:timeline',//分享到朋友圈
-            'menuItem:share:qq',//分享到QQ
-            'menuItem:share:weiboApp',//分享到Weibo
-            'menuItem:favorite',//收藏
             'menuItem:share:facebook',//分享到FB
-            'menuItem:share:QZone',//分享到 QQ 空间
             'menuItem:jsDebug',//调试
             'menuItem:editTag',//编辑标签
             'menuItem:delete',//删除
-            //'menuItem:copyUrl',//复制链接
             'menuItem:originPage',//原网页
             'menuItem:readMode',//阅读模式
-            'menuItem:openWithQQBrowser',//在QQ浏览器中打开
-            'menuItem:openWithSafari',//在Safari中打开
-            'menuItem:share:email',//邮件
-            'menuItem:share:brand',//一些特殊公众号
         ] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
     });
 }
@@ -206,14 +195,8 @@ function ShowMenuItems() {
             'menuItem:share:qq',//分享到QQ
             'menuItem:share:weiboApp',//分享到Weibo
             'menuItem:favorite',//收藏
-            'menuItem:share:facebook',//分享到FB
             'menuItem:share:QZone',//分享到 QQ 空间
-            'menuItem:jsDebug',//调试
-            'menuItem:editTag',//编辑标签
-            'menuItem:delete',//删除
             'menuItem:copyUrl',//复制链接
-            'menuItem:originPage',//原网页
-            'menuItem:readMode',//阅读模式
             'menuItem:openWithQQBrowser',//在QQ浏览器中打开
             'menuItem:openWithSafari',//在Safari中打开
             'menuItem:share:email',//邮件

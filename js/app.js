@@ -35,6 +35,7 @@ var all_api="/api/parentCommunity/getViewTopicPage?pageIndex=1&pageSize=100";
 var all_url=Heng.options.base_url + all_api + "&Authorization=" + Heng.getToken();
 app.controller('allTopic',function($scope,$http){
     $http.get(all_url).success(function(response){$scope.list=response.List;});
+
 });
     //获取token
 app.controller('gettingtoken',function($scope){
@@ -57,6 +58,7 @@ app.controller('weixin',function($scope,$http){
         }
     );
 
+
 });
     //当前话题信息
 var topicInfo_api="/api/parentCommunity/getMyViewTopic?topicId="+iid;
@@ -77,7 +79,10 @@ app.controller('topicInfo',function($scope,$http){
             angular.element("#morebtn").hide();
         }
     });
-
+    //点击返回按钮时 更新列表数据
+    $scope.back=function(){
+        $http.get(all_url).success(function(response){$scope.list=response.List;});
+    };
     //跑票
     $scope.updateRunTicket=function(RId){
         var updateRunTicket_api="/api/parentCommunity/updateRunTicket?topicId="+RId;
@@ -184,7 +189,7 @@ CMY.show=function(e,time){
 };
 
 $(function(){
-    //WXConfig('5693024816932578630');
+    WXConfig('5693024816932578630');
     setTimeout(function(){
         updateEndTime();
         progressBar();
@@ -508,28 +513,28 @@ function hidePoll(){
 }
 
 //微信分享
-//var title = '爸妈生活链';
-//var description = '爸妈生活链';
-//var logo = 'http://site.jxt189.com/nledu/images/HGshare.jpg';
-//
-//var sharedLink = 'http://weixin.jxt189.com/WeiEngine/OAuth2/Authorization.aspx?appcode=5693024816932578630&type=snsapi_base&redirect_uri=http%3a%2f%2fhd.jxt189.com%2fheng2%2fsignin-weixinauth%3fredirectUri%3dhttp%253a%252f%252fhd.jxt189.com%252fheng2%252fAdmin%252fWeixin%252fAuthorize%253fredirectUri%253dhttp%253a%252f%252fhd.jxt189.com%252fheng2%252fHg%252findex.html';
-//
-//
-//wx.ready(function () {
-//    var wechatShareUri = {
-//        title: title,
-//        desc: description,
-//        link: sharedLink,
-//        imgUrl: logo
-//    };
-//    var momentsShareUri = {
-//        title: title,
-//        desc: description,
-//        link: sharedLink,
-//        imgUrl: logo
-//    };
-//    wx.onMenuShareAppMessage(wechatShareUri);
-//    wx.onMenuShareTimeline(momentsShareUri);
-//    HideMenuItems();
-//});
+var title = '爸妈生活链';
+var description = '爸妈生活链';
+var logo = 'http://site.jxt189.com/nledu/images/HGshare.jpg';
+
+var sharedLink = 'http://dwz.cn/3dfWEc';
+
+
+wx.ready(function () {
+    var wechatShareUri = {
+        title: title,
+        desc: description,
+        link: sharedLink,
+        imgUrl: logo
+    };
+    var momentsShareUri = {
+        title: title,
+        desc: description,
+        link: sharedLink,
+        imgUrl: logo
+    };
+    wx.onMenuShareAppMessage(wechatShareUri);
+    wx.onMenuShareTimeline(momentsShareUri);
+    HideMenuItems();
+});
 

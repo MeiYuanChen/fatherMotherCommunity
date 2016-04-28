@@ -114,7 +114,7 @@ p{text-overflow: ellipsis;word-break:break-all;}
 .column .con1{background:url("../img/con1.png") no-repeat;background-size:100% 100%;padding:.2rem 1rem}
 .column .con2{background:url("../img/con1.png") no-repeat;background-size:100% 100%;padding:.2rem 1rem}
 .column .borderbottom{background:url("../img/borderbottom.png") no-repeat;background-size:100% 100%;height:.5rem; }
-.bg2{background:url("../img/bg2.jpg") no-repeat;background-size:100% 100%;width:100%;height:auto;}
+.bg2{background:url("../img/bg2.jpg") no-repeat;background-size:100% 100%;width:100%;height:auto;z-index: 98}
 .contenthtml .con img{width:100%;margin:5% 0 0 0;}
 .contenthtml .settime{width:76%}
 .contenthtml{}
@@ -136,7 +136,7 @@ p{text-overflow: ellipsis;word-break:break-all;}
 .comment{padding:5% 0;}
 .comment .header{width:2rem;height:2rem;}
 .comment .con{width:62%;padding:2% 8% 3% 8%;margin:0 11%;margin-top:-3rem;}
-.post{z-index:9999;}
+.post{z-index:97;}
 #form .button .img{width:100%;height:100%}
 #form .button{outline:none;width:2.2rem;height:1.5rem;margin-top:.25rem;border:none;}
 .post .text{padding:0 .1rem;height:1.7rem;resize:none;margin:1% 5%;border:1px solid #f8f8f8;width:8.7rem;outline:none}
@@ -190,3 +190,5 @@ textarea::-webkit-input-placeholder:after{
 .vsImg{width:1rem;height:.8rem;top:.6rem;left:47%;}
 .info{width:72%;left:14%;top:.8rem;}
 #textarea{height:2rem;width:57%; }
+.main{height:100vh;overflow:hidden;width:100%}
+.mainwrap{overflow-y: scroll;height:100%;background:#fff}
