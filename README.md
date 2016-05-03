@@ -1,4 +1,5 @@
 <h1>说明文件</h1>
+<h2>项目名称:益课堂微信公众号-爸妈生活链</h2>
 <h3><ol>
 <li>技术选型:HTML5+CSS3+jQuery+javascript+angular.js1.4.6</li>
 <li>其他应用到的技术:css reset,git</li>
