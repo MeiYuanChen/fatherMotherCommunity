@@ -169,7 +169,7 @@ app.controller('topicInfo',function($scope,$http){
                     angular.element("#morebtn").show();
                 }
             });
-        },500);
+        },100);
 
     };
 
