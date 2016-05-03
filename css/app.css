@@ -179,17 +179,17 @@ textarea::-webkit-input-placeholder:after{
 .Ovoted2{background:url("../img/Ovoted2.jpg") no-repeat;background-size:100% 100%;}
 .votediv .fl .add,.votediv .fl .less{color:#855cdd}
 .votediv .fr .add,.votediv .fr .less{color:#28a0a3}
-.votediv .add,.votediv .less{width:2rem;z-index:2;top:1rem;opacity:0}
+.votediv .add,.votediv .less{text-align: center;width: 2.5rem;z-index:2;top:1rem;opacity:0}
 
 .backtrack{background:url("../img/backtrack.jpg") no-repeat;background-size:100% 100%;width:25%;height:.7rem;margin-left:37.5%}
 .progressBarBorderOut{border:1px solid #000;height:.3rem;width:80%;z-index:0;left:10%;top:45%;}
 .progressBarBorderIn{height:1px;box-shadow:0 0 5px  #fff;background:rgba(255,255,255,.5);}
 .progressBarbtn{background:url("../img/progressBarbtn.png") no-repeat;background-size:100% 100%;width:1rem;height:1rem;left:1.5rem;}
-.progressBarbtnDiv{left:46%;z-index:1;top:17%;height:1rem;width:4rem;}
+.progressBarbtnDiv{left:46%;z-index:1;top:23%;height:1rem;width:4rem;}
 .progressBarbtnDiv .img{width:2rem;margin-top:.35rem;height: .3rem;}
 
 .vsImg{width:1rem;height:.8rem;top:.6rem;left:47%;}
-.info{width: 65%; left: 17%;  top: 1.1rem;}
+.info{width: 65%; left: 17%;  top: 1rem;}
 #textarea{height:2rem;width:57%; }
 .main{height:100vh;overflow:hidden;width:100%}
 .mainwrap{overflow-y: scroll;height:100%;background:#fff}

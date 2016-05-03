@@ -125,8 +125,21 @@ app.controller('topicInfo',function($scope,$http){
     };
     //发表评论
     $scope.sub=function(RId,content,name,header,rk){
+        var Stext=angular.element("#textarea .Stext");
+        var Otext=angular.element("#textarea .Otext");
+
         if(!content){
             return false;
+        }
+        if(rk==1){
+            if(Stext.val()==""){
+                return false;
+            }
+        }
+        if(rk==2){
+            if(Otext.val()==""){
+                return false;
+            }
         }
         var postcomment_url=Heng.options.base_url+"/api/parentCommunity/updateReply"+"?Authorization="+Heng.getToken();
         var postcomment_add={
@@ -145,9 +158,13 @@ app.controller('topicInfo',function($scope,$http){
             headers:{ 'Content-Type': 'application/json'}
         }).success(function(){
             console.log("发布评论成功");
+            Stext.val("");
+            Otext.val("");
             $http.get(comment_url).success(function(response){$scope.list=response.List;$scope.count=response.Count;});
 
         }).error(function(res){
+            Stext.val("");
+            Otext.val("");
             alert('更新失败'+res);
         });
     };
@@ -271,7 +288,7 @@ function hoverbtnfun(btn){ //正方发表按钮
     $btnlast.attr("style","display:none");
     setTimeout(function(){
         $btnlast.attr("style","display:block");
-        $("textarea").val("");
+
         progressBar();
     },100);
 
@@ -281,12 +298,14 @@ function verification(text){//验证文本框是否为空
     var reg1=/\s/;//空白行
     var $text=$(text).val();
     if(reg1.test($text)|| $text==""){
+
         CMY.show("#error","slow");
         setTimeout(function(){
 
             CMY.hide("#error","slow");
         },3000);
     }else{
+
         CMY.show("#success","slow");
         setTimeout(function(){
 
@@ -298,8 +317,10 @@ function verification(text){//验证文本框是否为空
 }
 
 function removeOnclick(removeclick1,removeclick2){
-    $(removeclick1).attr("onclick","");
-    $(removeclick2).attr("onclick","");
+    $(removeclick1).removeAttr("onclick");
+    $(removeclick2).removeAttr("onclick");
+    $(removeclick1).attr("ng-click",'');
+    $(removeclick2).attr("ng-click",'');
 }
 
 function toggleSO2(btn,add){
@@ -321,6 +342,12 @@ function backtrack(){
     var $s=$("#Svote");
     var $Ostyle=$o.find('.img:last-child');
     var $Sstyle=$s.find('.img:last-child');
+    var $sdataVal,$odataVal;
+    setTimeout(function(){
+         $sdataVal=$("span[data-Soddnum]").attr("data-Soddnum");
+         $odataVal=$("span[data-Ooddnum]").attr("data-Ooddnum");
+    },100);
+
     $("#backtrack").click(function(){
 
         if($Ostyle.attr("style")=="display: none;"){
@@ -350,10 +377,10 @@ function backtrack(){
 function lessfun(a,less){
     var $lessbtn=$(less);
     if(a=="display: block;"){
-        $lessbtn.animate({top:".2rem",opacity:"1"},1);
+        $lessbtn.animate({top:".2rem",opacity:"1"},2);
         setTimeout(function(){
-            $lessbtn.animate({opacity:"0",top:"1rem"},500);
-        },2);
+            $lessbtn.animate({opacity:"0",top:"1rem"},1000);
+        },50);
     }
 }
 
@@ -362,10 +389,10 @@ function addfun(a,add,btn){
     var $addbtn=$(add);
 
     if(a=="display: none;"){
-        $addbtn.animate({top:".2rem",opacity:"1"},1);
+        $addbtn.animate({top:".2rem",opacity:"1"},2);
         setTimeout(function(){
-            $addbtn.animate({opacity:"0",top:"1rem"},500);
-        },2);
+            $addbtn.animate({opacity:"0",top:"1rem"},1000);
+        },50);
         //addData(btn);
     }
 
@@ -462,7 +489,7 @@ function progressBar(){
 function progressBarbtnPosition(leftWidth){
     var unit='%',//单位
         $btn=$("#progressBarbtn");
-    $btn.css('left',leftWidth-17+unit);
+    $btn.css('left',leftWidth-20+unit);
 }
 
 var browser = {

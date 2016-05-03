@@ -40,7 +40,7 @@
                 </div>
             </div>
             <!--正方按钮开始-->
-            <div class="fl" id="Svotediv" ng-click="updatePoll(result.Id,'1');" onclick="CMY.show('#backtrack',1800);hoverbtnfun('#Svote2');toggleSO2('#Svote','#Svotediv .add');removeOnclick('#Svotediv','#Ovotediv');">
+            <div class="fl" id="Svotediv" ng-if="result.PollType==0" ng-click="updatePoll(result.Id,'1');" onclick="CMY.show('#backtrack',1800);hoverbtnfun('#Svote2');toggleSO2('#Svote','#Svotediv .add');removeOnclick('#Svotediv','#Ovotediv');">
                 <div class="add pa fz06 tc">+1</div>
                 <div class="less pa fz06 tc">-1</div>
                 <div class="vote oh pr" id="Svote">
@@ -55,6 +55,18 @@
                 </div>
             </div>
             <!--正方按钮结束-->
+            <!--正方按钮开始-->
+            <div class="fl" id="Svotediv">
+                <div class="add pa fz06 tc">+1</div>
+                <div class="less pa fz06 tc">-1</div>
+                <div class="vote oh pr" id="Svote">
+                    <img class="Svoted img top left pa" src="img/Svoted.png">
+                    <img class="Svote img pa top left"  src="img/Svote.png" ng-if="result.PollType==2"/>
+                    <img class="Svote img pa top left"  src="img/Svote.png" ng-if="result.PollType==1" style="display: none;"/>
+                </div>
+
+            </div>
+            <!--正方按钮结束-->
             <!--结束时反方按钮-->
             <div class="fr hide" id="OvotedivEnd">
                 <div class="vote oh pr">
@@ -62,7 +74,7 @@
                 </div>
             </div>
             <!--反方按钮开始-->
-            <div class="fr" id="Ovotediv" ng-click="updatePoll(result.Id,'2');" onclick="CMY.show('#backtrack',1800);hoverbtnfun('#Ovote2');toggleSO2('#Ovote','#Ovotediv .add');removeOnclick('#Svotediv','#Ovotediv');">
+            <div class="fr" id="Ovotediv" ng-if="result.PollType==0" ng-click="updatePoll(result.Id,'2');" onclick="hoverbtnfun('#Ovote2');toggleSO2('#Ovote','#Ovotediv .add');removeOnclick('#Svotediv','#Ovotediv');">
                 <div class="less pa fz06 tc">-1</div>
                 <div class="add pa fz06 tc">+1</div>
 
@@ -74,14 +86,29 @@
                 <div class="vote2 pa right bottom" id="Ovote2">
                     <div class="w h pr">
                         <img class="img pa left top w h"  src="img/Ovoted2.jpg"/>
-                        <img class="img pa left top w h" src="img/Ovote2.jpg">
+                        <img class="img pa left top w h" src="img/Ovote2.jpg" />
                     </div>
                 </div>
             </div>
             <!--反方按钮结束-->
+            <!--反方按钮开始-->
+            <div class="fr" id="Ovotediv">
+                <div class="less pa fz06 tc">-1</div>
+                <div class="add pa fz06 tc">+1</div>
+
+                <div class="vote oh pr" id="Ovote">
+                    <img class="Ovoted img top left pa" src="img/Ovoted.png">
+                    <img class="Ovote img top left pa"  src="img/Ovote.png" ng-if="result.PollType==1"/>
+                    <img class="Ovote img top left pa"  src="img/Ovote.png" ng-if="result.PollType==2" style="display: none;"/>
+
+                </div>
+
+            </div>
+            <!--反方按钮结束-->
             <!--我要跑票按钮-->
 
-            <div class="backtrack pa bottom hide" id="backtrack" ng-click="updateRunTicket(result.Id);"></div>
+            <div class="backtrack pa bottom hide" ng-if="result.PollType==0" id="backtrack" ng-click="updateRunTicket(result.Id);"></div>
+            <div class="backtrack pa bottom" ng-if="result.PollType!=0" id="backtrack" ng-click="updateRunTicket(result.Id);"></div>
             <!--信息显示开始-->
             <!--vs图标-->
             <img class="vsImg pa" src="img/vs.jpg">
