@@ -207,10 +207,10 @@ CMY.show=function(e,time){
 
 $(function(){
     WXConfig('5693024816932578630');
+    backtrack();
     setTimeout(function(){
         updateEndTime();
         progressBar();
-        backtrack();
         hidePoll();
     },500);
 });
