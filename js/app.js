@@ -64,6 +64,7 @@ $(function(){
     shownum();
     backtrack();
     hidePoll();
+    index();
 });
 var $sum;
 
