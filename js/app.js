@@ -59,7 +59,7 @@ $(function(){
                 type:'GET',
                 url:all_url,
                 success:function(data){
-                    this.list=data.List;
+                    this.list=data;
                 }
 
             })
