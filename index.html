@@ -17,7 +17,7 @@
         <a :href="content.html#iid={{x.Id}}&lh" class="tdn">
             <div class="header w">
                 <h2 class="fz05 tr whitebg black8 pr5 lh150 settime "  id="{{x.id}}" endTime="2016-08-30T00:00:00"></h2>
-                <h1 class="fz072 whitebg tl pl5 lh180 pr5 purple2"></h1>
+                <h1 class="fz072 whitebg tl pl5 lh180 pr5 purple2" v-bind="{{x.Title}}"></h1>
             </div>
             <div class="content w90 pl5 pr5 pb3">
                 <div class="thumbnails oh">
@@ -27,10 +27,10 @@
                 <div class="oh cb fz055 ptb3 tc">
                     <span class="square">
                         <span class="ionic dib">&nbsp;</span>
-                        <span class="con1">正方 <span></span></span>
+                        <span class="con1">正方 <span v-bind="{{x.AffirmativeCount}}"></span></span>
                     </span>
                     <span class="opposition">
-                        <span class="con2">反方 <span></span></span>
+                        <span class="con2">反方 <span v-bind="{{x.NegativeCount}}"></span></span>
                         <span class="ionic2 dib">&nbsp;</span>
                     </span>
                 </div>
