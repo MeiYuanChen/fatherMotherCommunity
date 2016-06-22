@@ -27,7 +27,27 @@
 })
 (document, window);
 //vue start
+var iid=Heng.getIid();
+var lh="token=" + Heng.getToken();
+//获取话题列表
+var all_api="/api/parentCommunity/getViewTopicPage?pageIndex=1&pageSize=100";
+var all_url=Heng.options.base_url + all_api + "&Authorization=" + Heng.getToken();
+var index=new Vue({
+    el:'#index',
+    data:{
+        list:[]
+    },
+    ready:function(){
+        $.ajax({
+            type:'GET',
+            url:all_url,
+            success:function(data){
+                this.list=data.List;
+            }
 
+        })
+    }
+});
 //vue end
 var CMY={};
 CMY.hide=function(e,time){
