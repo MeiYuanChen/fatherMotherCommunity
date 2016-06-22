@@ -6,30 +6,30 @@
     <title>爸妈生活链</title>
     <link rel="stylesheet" href="css/app.css">
 </head>
-<body class="purplebg mw700" ng-app="myApp" ng-controller="allTopic">
+<body class="purplebg mw700">
 <div class="bg pf top left mw700"></div>
 <div class="w tc mt3">
     <img class="w80" src="img/header.png">
 </div>
-<ul class="oh w90 ml5 column" ng-controller="gettingtoken">
-    <li class="mb5" ng-repeat="x in list">
-        <a ng-href="content.html#iid={{x.Id}}&{{lh}}" class="tdn">
+<ul class="oh w90 ml5 column">
+    <li class="mb5">
+        <a href="content.html#iid={{x.Id}}&{{lh}}" class="tdn">
             <div class="header w">
-                <h2 class="fz05 tr whitebg black8 pr5 lh150 settime "  id="{{x.Id}}" endTime="{{x.EndTime}}"></h2>
-                <h1 class="fz072 whitebg tl pl5 lh180 pr5 purple2" ng-bind="x.Title"></h1>
+                <h2 class="fz05 tr whitebg black8 pr5 lh150 settime "  id="" endTime="2016-08-30T00:00:00"></h2>
+                <h1 class="fz072 whitebg tl pl5 lh180 pr5 purple2"></h1>
             </div>
             <div class="content w90 pl5 pr5 pb3">
                 <div class="thumbnails oh">
-                    <img ng-src="{{x.Thumbnail}}"/>
+                    <img src=""/>
                 </div>
 
                 <div class="oh cb fz055 ptb3 tc">
                     <span class="square">
                         <span class="ionic dib">&nbsp;</span>
-                        <span class="con1">正方 <span ng-bind="{{x.AffirmativeCount}}"></span></span>
+                        <span class="con1">正方 <span></span></span>
                     </span>
                     <span class="opposition">
-                        <span class="con2">反方 <span ng-bind="{{x.NegativeCount}}"></span></span>
+                        <span class="con2">反方 <span></span></span>
                         <span class="ionic2 dib">&nbsp;</span>
                     </span>
                 </div>
@@ -40,7 +40,7 @@
 
 </ul>
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script src="js/vue.js"></script>
 <script src="js/heng.js"></script>
 <script src="js/app.js"></script>
 </body>

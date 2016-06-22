@@ -26,6 +26,9 @@
     doc.addEventListener('DOMContentLoaded', recalc, false);
 })
 (document, window);
+//vue start
+
+//vue end
 var CMY={};
 CMY.hide=function(e,time){
     return $(e).fadeOut(time);
